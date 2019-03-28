@@ -1,0 +1,111 @@
+<!--pages/mine/mine.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/noMore/noMore.wxml" />
+
+<view class="mineBox">
+  <view class="mineTop">
+    <view class="mineHead">
+      <view class="mineHeadImg"><image src="{{userUrl}}"></image></view>
+      <view class="mineHeadName">
+        <text>{{nickName}}</text>
+        <view wx:if="{{isAccredit == 1}}" class="joinMyStore" bindtap="toJoinMyStore">{{isAuth != 1? '成为推荐师': '我的口袋店'}}</view>
+      </view>
+    </view>
+    <view class="productOperate" wx:if="{{isAccredit == 1}}">
+      <view class="itemOperate" bindtap="jumpTopManager">
+        <view><image src="../../images/manager_icon.png"></image></view>
+        <text>管理</text>
+      </view>
+      <view class="itemOperate" bindtap="jumpToCoupon">
+        <view><image src="../../images/card_bag.png"></image></view>
+        <text>卡包</text>
+      </view>
+    </view>
+  </view>
+  <view class="mineOrdersList" wx:if="{{isAccredit == 1}}">
+    <view class="mineOrdersTitle">
+      <text>我的订单</text>
+      <view wx:if="{{isAccredit == 1 && isManageer == 1}}" bindtap="toScanCodePage"><image src="../../images/scanCode.png"></image></view>
+      <!-- <view bindtap="toScanCodePage"><image src="../../images/scanCode.png"></image></view> -->
+    </view>
+    <scroll-view scroll-y bindscrolltolower="lowerLoad" style="height: {{scrollH}}" wx:if="{{ordersList.length != 0}}">
+      <view class="mineOrdersListBox">
+        <wxs module="ordersStatus" />
+        <view v-if="{{item.payStatus == 1}}" class="itemMineOrders"
+              wx:for="{{ordersList}}"
+              wx:key="{{index}}"
+              data-index="{{index}}"
+              data-type="{{ordersStatus.statusFn(item.isRefund, item.actionStatus)}}"
+              bindtap="jumpToOrdersDetail">
+          <view class="itemOrdersName">
+            <wxs module="timeDeal" />
+            <view>{{item.title}}</view>
+            <text>购买日期：{{timeDeal.toDealTime(item.payTime)}}</text>
+          </view>
+          <view class="itemOrdersStatus {{ordersStatus.statusFn(item.isRefund, item.actionStatus) == 0? 'buildGroupIng':ordersStatus.statusFn(item.isRefund, item.actionStatus) == 1? 'successBuild': 'hadTravel'}}">{{ordersStatus.statusFn(item.isRefund, item.actionStatus) == 0? '未使用': ordersStatus.statusFn(item.isRefund, item.actionStatus) == 1? '已使用':ordersStatus.statusFn(item.isRefund, item.actionStatus) == 2? '已过期': '已退款'}}</view>
+        </view>
+      </view>
+      <template wx:if="{{!isHadMore}}" is="noMore" />
+    </scroll-view>
+    
+    <view class="mineOrdersBlank" wx:else>
+      <view><image src="../../images/noData.png"></image></view>
+      <text>您还没有订单哦～</text>
+    </view>
+  </view>
+
+  <view class="toAccredit" wx:if="{{isAccredit != 1 && isShowAuthStatus}}">
+    <view><image src="../../images/noAccredit.png"></image></view>
+    <text>您好像还没有授权哦~</text>
+    <button wx:if="{{isAccredit == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">点击授权</button>
+    <button wx:if="{{isAccredit == 2}}" open-type="openSetting">点击授权</button>
+    <button wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting">点击授权</button>
+  </view>
+
+  <view class="joinColloctTop" wx:if="{{isShowJoinMiniTop}}" catchtap="toShowJoinColloct">
+    <view class="joinColloctTopBox">
+      <text>添加到我的小程序</text>
+      <text>发现精选优质旅行</text>
+    </view>
+  </view>
+  <view wx:if="{{isShowJoinMiniBox}}" class="joinMiniNoticeBox">
+    <view class="showNoticeImgBox">
+      <image src="../../images/joinMini.png"></image>
+    </view>
+    <view class="toCloseNoticeBox" catchtap="toCloseMiniBox">我知道啦!</view>
+  </view>
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>
+
+<wxs module="timeDeal">
+  var toDealTime = function(time) {
+    if(time) {
+      return time.split(' ')[0]
+    }
+  }
+
+  module.exports = {
+    toDealTime: toDealTime
+  }
+</wxs>
+
+<wxs module="ordersStatus">
+  var statusFn = function(isRefund, actionStatus) {
+    if(isRefund == 1) { //已退款
+      return 3
+    }else {
+      if(actionStatus == 0) { //未使用
+        return 0
+      }else if(actionStatus == 1){ //已使用
+        return 1
+      }else if(actionStatus == 2) { //已过期
+        return 2
+      }
+    }
+  }
+
+  module.exports = {
+    statusFn: statusFn
+  }
+</wxs>

@@ -1,0 +1,6 @@
+<template name="shareBtn">
+  <view class="shareBtnBox" catchtap="bindToHome">
+    <view><image src="../../images/selected_home.png"></image></view>
+    <text>首页</text>
+  </view>
+</template>

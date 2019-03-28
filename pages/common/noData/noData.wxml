@@ -1,0 +1,6 @@
+<template name="noData">
+  <view class="noData">
+    <view><image src="../../images/noData.png"></image></view>
+    <text>{{noDataText}}</text>
+  </view>
+</template>

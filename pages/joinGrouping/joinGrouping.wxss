@@ -1,0 +1,254 @@
+/* pages/joinGrouping/joinGrouping.wxss */
+.ordersDetailIng {
+  width: 100%;
+  height: auto;
+}
+.ordersStageLineBox {
+  width: 100%;
+  height: auto;
+  background:#F1F1F5;
+  padding-bottom: 20rpx;
+}
+.ordersStageLine {
+  width: 100%;
+  height: 176rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.orderStageBox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+.ordersStage {
+  display: flex;
+  align-items: center;
+}
+.ordersStage>view {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+}
+.ordersStage:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 4rpx;
+  width: 192rpx;
+  background: #A2AFB5;
+}
+.ordersStage.bothSidesComplete::after {
+  background: #F7372C;
+}
+.orderStageText {
+  width: 502rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #A2AFB5;
+}
+.orderStageText>text:first-child {
+  position: relative;
+  left: -24rpx;
+}
+.orderStageText>text:nth-child(3) {
+  position: relative;
+  right: -24rpx;
+}
+.orderStageText .hadToStage {
+  color: #000000;
+}
+
+.lookProductDetailBox {
+  width: 100%;
+  height: auto;
+  background:#F1F1F5;
+  padding-bottom: 20rpx;
+}
+.lookProductDetail {
+  padding: 0 40rpx;
+  background: #fff;
+}
+.showProductInfo {
+  width: atuo;
+  height: auto;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+}
+.showProductImg {
+  height: 244rpx;
+  width: 244rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+}
+.showProductText {
+  flex: 1;
+  height: 244rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productTitle {
+  font-size: 32rpx;
+  color: #384146;
+  font-weight: 600;
+}
+.toLookProductDetail {
+  font-size: 24rpx;
+  color: #A2AFB5;
+}
+.productPrice {
+  font-size: 56rpx;
+  color: #F7372C;
+}
+.ordersOperation {
+  width: auto;
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+.itemOrdersOperate {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.itemOrdersOperate>view:not(.quitGroupNotice) {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.itemOrdersOperate>text{
+  font-size: 32rpx;
+  color: #000000;
+}
+.itemOrdersOperate .quitGroupNotice {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.lookGroupInfo {
+  padding: 50rpx 40rpx 0;
+}
+.showAllGroupHead {
+  width: auto;
+  height: 120rpx;
+  white-space: nowrap;
+  margin-bottom: 40rpx;
+}
+.itemUserHead {
+  height: auto;
+  width: 100rpx;
+  position: relative;
+  display: inline-block;
+}
+.itemUserHead:not(:last-child) {
+  margin-right: 46rpx;
+}
+.itemUserHead>view {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.itemUserHead>.groupOrganizer {
+  position: absolute;
+  bottom: -18rpx;
+  left: 0;
+  width: 96rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background: #FFDA4C;
+  border-radius: 18rpx;
+  font-size: 24rpx;
+  color: #000000;
+  text-align: center;
+}
+.itemUserHead>.toBuyNum {
+  position: absolute;
+  top: 0;
+  right: -4rpx;
+  background:#F7372C;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 20rpx;
+}
+
+.stillNeedNum {
+  width: auto;
+  text-align: center;
+  font-size: 36rpx;
+  color: #40484D;
+  font-weight: 600;
+  margin-bottom: 40rpx;
+}
+.stillNeedNum>text {
+  color: #F7372C;
+}
+
+.remainTime {
+  width:auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.remainTime>text {
+  font-size: 32rpx;
+  color: #A3B1B7;
+}
+.remainTime>view {
+  height: 80rpx;
+  width: auto;
+  padding: 0 10rpx;
+  background: #40484D;
+  border-radius: 16rpx;
+  margin: 0 20rpx;
+  font-size: 50rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.shareGroup {
+  width: auto;
+  height: auto;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shareGroup>view, .shareGroup>button{
+  flex:1;
+  height: 96rpx;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.officialHelp {
+  background: #FFDA4C;
+  margin-right: 40rpx;
+}
+.selfFriend {
+  background: #F7372C;
+}
+

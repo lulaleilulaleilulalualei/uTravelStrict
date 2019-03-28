@@ -1,0 +1,22 @@
+<!--components/surpriseBox/surpriseBox.wxml-->
+<view class="surpriseBox" wx:if="{{isShowBox}}">
+  <view class="surpriseBoxContain">
+    <view class="supBoxTitle">
+      <image src="../../images/utraveler_gift.png"></image>
+    </view>
+    <view class="supBoxIntroText">壹日旅行送您旅行专享礼</view>
+    <scroll-view scroll-y class="supCouponBox">
+      <view class="itemSupCoupon" wx:for="{{couponArr}}" wx:key="{{index}}" bindtap="closeSupBox">
+        <view class="itemSupCouponBg"><image src="../../images/couponBg.png"></image></view>
+        <view class="itemSupCouponBox">
+          <view class="showItemSupTitle" wx:if="{{item.type == '0'}}">¥ <text>{{item.price}}</text></view>
+          <view class="showItemSupTitle" wx:if="{{item.type == '1'}}">{{item.name}}</view>
+          <view class="showItemSupBtn">{{item.type == '0'? '立即使用': '立即兑换'}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="surpriseBoxClose" bindtap="closeSupBox">
+    <image src="../../images/delete_icon.png"></image>
+  </view>
+</view>

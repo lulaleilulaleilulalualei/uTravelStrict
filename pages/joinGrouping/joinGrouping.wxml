@@ -1,0 +1,82 @@
+<!--pages/joinGrouping/joinGrouping.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="ordersDetailIng">
+  <!-- 拼团阶段 -->
+  <view class="ordersStageLineBox">
+  <view class="ordersStageLine">
+    <view class="orderStageBox">
+      <view class="ordersStage bothSidesComplete">
+        <view><image src="../../images/order_icon.png"></image></view>
+      </view>
+      <view class="ordersStage">
+        <view><image src="../../images/order_icon.png"></image></view>
+      </view>
+      <view class="ordersStage">
+        <view><image src="../../images/noCompele.png"></image></view>
+      </view>
+    </view>
+    <view class="orderStageText">
+      <text class="hadToStage">支付拼团</text>
+      <text class="hadToStage">邀请好友</text>
+      <text>拼团成功</text>
+    </view>
+  </view>
+  </view>
+  <!-- 查看产品详情 -->
+  <view class="lookProductDetailBox">
+  <view class="lookProductDetail">
+    <view class="showProductInfo">
+      <view class="showProductImg" bindtap="jumpToProductDetail"><image src="{{ordersObj.thumb}}"></image></view>
+      <view class="showProductText">
+        <view class="productTitle" bindtap="jumpToProductDetail">{{ordersObj.goodsName}}</view>
+        <text class="toLookProductDetail" >团编号：{{ordersObj.num}}</text>
+        <view class="productPrice">¥ {{ordersObj.adultPrice}}</view>
+      </view>
+    </view>
+    <view class="ordersOperation">
+      <view class="itemOrdersOperate">
+        <view><image src="../../images/contact.png"></image></view>
+        <text>咨询商家</text>
+        <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+      </view>
+      <view class="itemOrdersOperate" bindtap="toCancelOrders">
+        <view><image src="../../images/cancel_order.png"></image></view>
+        <text>取消订单</text>
+        <view class="quitGroupNotice" catchtap="jumpToQuitChange"><image src="../../images/doubt_icon.png"></image></view>
+      </view>
+    </view>
+  </view>
+  </view>
+
+  <!-- 查看拼团信息 -->
+  <view class="lookGroupInfo">
+    <scroll-view scroll-x="true" class="showAllGroupHead">
+      <view class="itemUserHead" wx:for="{{ordersObj.batchUsers}}" wx:key="{{index}}">
+        <text wx:if="{{item.applyNum > 1}}" class="toBuyNum">{{item.applyNum}}</text>
+        <view><image src="{{item.avatar}}"></image></view>
+        <text class="groupOrganizer" wx:if="{{index === 0}}">发起人</text>
+      </view>
+    </scroll-view>
+    <view class="stillNeedNum">还差 <text>{{ordersObj.oddApplyNum}}</text> 人拼团成功</view>
+  </view>
+
+  <!-- 剩余时间 -->
+  <view class="remainTime">
+    <text>剩余</text>
+    <view>{{hour}}</view>
+    <text>小时</text>
+    <view>{{minute}}</view>
+    <text>分</text>
+    <view>{{second}}</view>
+    <text>秒</text>
+  </view>
+
+  <!-- 帮助拼团 -->
+  <view class="shareGroup">
+    <!-- <view class="officialHelp">官方帮你拼团</view> -->
+    <button open-type="share" class="selfFriend" bindtap="shareFriend">{{shareJoinText}}</button>
+  </view>
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>

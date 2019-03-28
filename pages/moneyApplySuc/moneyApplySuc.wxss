@@ -1,0 +1,84 @@
+/* pages/moneyApplySuc/moneyApplySuc.wxss */
+.applySuccess {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+}
+.showApplySucContent {
+  padding: 40rpx
+}
+.showSuccessBox {
+  background: #fff;
+  height: auto;
+  width: auto;
+}
+.applySucTopBox {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 60rpx 0 90rpx;
+}
+.applySucIcon {
+  width: 162rpx;
+  height: 162rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+.applySucTxt {
+  font-size: 36rpx;
+  color: #000000;
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.applySucNotice {
+  width: 410rpx;
+  margin: 0 auto;
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  text-align: center;
+}
+.applySucTopBox {
+  border-bottom: 1px dashed #E3E3E3;
+}
+.applySucBottomBox {
+  padding: 40rpx 30rpx;
+}
+.itemApplyInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemApplyInfo:first-child {
+  margin-bottom: 20rpx;
+}
+.itemApplyInfo text {
+  font-size: 28rpx;
+  color: #222222;
+}
+.itemApplyInfo view {
+  font-size: 28rpx;
+  color: #848484;
+  display: flex;
+  align-items: center;
+}
+.wxSmallIcon {
+  width: 28rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+.toApplyCompleteBtn {
+  width: 570rpx;
+  height: 90rpx;
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+  color: #000000;
+  line-height: 90rpx;
+  text-align: center;
+  margin:0 auto;
+  margin-top: 60rpx;
+}

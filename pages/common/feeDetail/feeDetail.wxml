@@ -1,0 +1,88 @@
+<template name="feeDetail">
+  <view class="feeDetail">
+    <scroll-view scroll-y="true" class="feeDetalBox">
+      <view class="feeDetailTitle">费用明细</view>
+      <view class="productFeeName">{{productName}}</view>
+      <view class="productFeeBox">
+         <!-- <view class="productDesc">{{productDesc}}</view> -->
+         <view class="productUserBuy" wx:if="{{type != 1}}">
+          <view class="itemShowUserBuy">
+            <text>成人：</text>
+            <view>¥ {{adultPrice}} x {{adultNum}}人</view>
+          </view>
+          <view class="itemShowUserBuy">
+            <text>儿童：</text>
+            <view>¥ {{childrenPrice}} x {{childrenNum}}人</view>
+          </view>
+          <view class="itemShowUserBuy">
+            <text>婴儿：</text>
+            <view>¥ {{childPrice}} x {{childNum}}人</view>
+          </view>
+         </view>
+         <view class="productUserBuy" wx:if="{{type == 1}}">
+          <view class="itemShowUserBuy">
+            <text>份数：</text>
+            <view>¥ {{adultPrice}} x {{adultNum}}份</view>
+          </view>
+         </view>
+      </view>
+      <block wx:if="{{policyObj}}">
+        <view class="productFeeName">保险</view>
+        <view class="productFeeBox">
+          <view class="productUserBuy">
+            <view class="itemShowUserBuy">
+                <text>{{policyObj.proName}}/{{policyObj.safeName}}：</text>
+                <view>¥ {{policyObj.proPrice}}/份</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <wxs module="otherProObj" />
+      <block wx:if="{{otherProObj.arrDeal(otherPro).length != 0}}">
+        <view class="productFeeName">礼品</view>
+        <view class="productFeeBox">
+          <view class="productUserBuy">
+            <view class="itemShowUserBuy" wx:for="{{otherProObj.arrDeal(otherPro)}}" wx:key="{{index}}">
+                <text>{{item.proName}}：</text>
+                <view>¥ {{item.proPrice}} x {{item.buyNum}}份</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="productFeeName">优惠</view>
+      <view class="productFeeBox">
+        <view class="productUserBuy">
+          <view class="itemShowUserBuy">
+              <text>商家优惠券：</text>
+              <view>{{feeType == 0? '- -': merchantDiscounts != ''? '- ¥ ' + merchantDiscounts: '- -'}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="showNeedTotal">
+        <view>订单总额（在线支付）： <text>¥ {{realPrice}}</text></view>
+      </view>
+    </scroll-view>
+    <view class="toCloseFeeBox" bindtap="closeFeeBox"><text>关闭</text></view>
+  </view>
+</template>
+
+<wxs module="otherProObj">
+  var arrObj = function(arr) {
+      var a = []
+      if(arr.length == 0) {
+        a = arr
+      }else {
+        arr.map(function(v, i) {
+          if(v) {
+            a.push(v)
+          }
+        })
+      }
+      
+      return a
+  }
+
+  module.exports = {
+    arrDeal: arrObj
+  }
+</wxs>

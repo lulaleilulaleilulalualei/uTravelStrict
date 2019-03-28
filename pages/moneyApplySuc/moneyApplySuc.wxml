@@ -1,0 +1,23 @@
+<!--pages/moneyApplySuc/moneyApplySuc.wxml-->
+<view class="applySuccess">
+  <view class="showApplySucContent">
+    <view class="showSuccessBox">
+      <view class="applySucTopBox">
+        <view class="applySucIcon"><image src="../../images/applyMoneySuc.png"></image></view>
+        <view class="applySucTxt">提现申请成功</view>
+        <text class="applySucNotice">你的资金将在1-5个工作日内到账请注意查收</text>
+      </view>
+      <view class="applySucBottomBox">
+          <view class="itemApplyInfo">
+            <text>收款账户</text>
+            <view><view class="wxSmallIcon"><image src="../../images/wx_icon.png"></image></view> {{userName}}</view>
+          </view>
+          <view class="itemApplyInfo">
+            <text>提现金额</text>
+            <view>{{applyMoney}}元</view>
+          </view>
+      </view>
+    </view>
+    <view class="toApplyCompleteBtn" bindtap="toCompleteApply">完成</view>
+  </view>
+</view>

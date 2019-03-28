@@ -1,0 +1,7 @@
+<template name="noInternet">
+  <view class="noInternet">
+    <view class="noInternetImg"><image src="../../images/noInternet.png"></image></view>
+    <text>您的手机网络不太顺畅哦～</text>
+    <view class="noInternetToLoad" bindtap="toAgainLoad">重新加载</view>
+  </view>
+</template>

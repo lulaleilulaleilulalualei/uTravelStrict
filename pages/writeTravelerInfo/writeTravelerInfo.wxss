@@ -1,0 +1,94 @@
+/* pages/writeTravelerInfo/writeTravelerInfo.wxss */
+.writeInfoPage {
+  width: auto;
+  height: 100%;
+  padding:0 30rpx;
+}
+.writeInfoPageBox {
+  width: auto;
+  height: auto;
+  padding-top: 30rpx;
+}
+.writeInfoTitle {
+  font-size: 48rpx;
+  color: #222222;
+  margin-bottom: 40rpx;
+  font-weight: 600;
+}
+.writeInfoBox {
+  width: auto;
+  height: auto;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #EFEFEF;
+  margin-bottom: 60rpx;
+}
+.writeInfoNeedName {
+  display: block;
+  font-size: 24rpx;
+  color: #222222;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+.writeInfoBox>input {
+  width: auto;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #222222;
+}
+
+.selectInfoBox {
+  width: auto;
+  height: auto;
+  border-bottom: 1px solid #EFEFEF;
+  margin-bottom: 60rpx;
+}
+.selectInfoBox>picker {
+  width: auto;
+  height: auto;
+}
+.selectInfoBoxInside {
+  width: auto;
+  height: auto;
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectInfoBoxInside::after {
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border: 4rpx solid #ccc;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-left: 20rpx;
+}
+.selectInfoBoxInside>view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectInfoBoxInside>view>text {
+  font-size: 24rpx;
+  color: #222222;
+  font-weight: 600;
+}
+.selectInfoBoxInside>view>view {
+  font-size: 28rpx;
+  color: #222222;
+}
+.compeleteInfo {
+  width: auto;
+  height: 88rpx;
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #000000;
+  margin-top: 80rpx;
+}

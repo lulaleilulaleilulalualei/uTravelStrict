@@ -1,0 +1,28 @@
+<!--pages/myWallet/myWallet.wxml-->
+<view class="myWallet">
+  <view class="topIncomeShow">
+     <text>累计收入（元）</text>
+     <view class="showIncomeNum">{{canLimit}}</view>
+     <view class="toJumpBill" bindtap="toJumpBill">明细</view>
+  </view>
+
+  <view class="toGetDeposit">
+    <view class="showToAccount">
+      <text>到账账号</text>
+      <view class="accountName"><image src="../../images/wx_icon.png"></image><text>{{wxName}}</text></view>
+    </view>
+    <view class="needGetDepositNum">
+      <text>提现金额</text>
+      <view class="needNumInp"><text>¥</text> <input type="digit" bindblur="getInpValue" bindconfirm="getInpValue" value="{{inpVal}}"></input></view>
+    </view>
+    <view class="depositTextBox">
+      <view class="depositAll">
+        <text>钱包余额¥{{canLimit}}，</text>
+        <view bindtap="toGetAllDeposit">全部提现</view>
+      </view>
+      <text>{{disTips}}</text>
+    </view>
+
+    <view class="toGetDepositBtn" bindtap="bindToAccount"><text>提现</text></view>
+  </view>
+</view>

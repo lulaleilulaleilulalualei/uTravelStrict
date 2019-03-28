@@ -1,0 +1,25 @@
+<!--pages/addTraveler/addTraveler.wxml-->
+<view class="travelerList">
+  <view class="travelerListBox">
+    <view class="travelerBtn" data-type="add" bindtap="toJumpWriteInfo">
+      <view><image src="../../images/add_people.png"></image></view>
+      <text>新增出行人</text>
+    </view>
+
+    <view class="itemTravelerInfo"
+          wx:for="{{travelerList}}"
+          wx:key="{{item.id}}">
+      <view class="travelerInfoBox" data-index="{{index}}" bindtouchstart="touchStart" bindtouchmove="touchMove" animation="{{itemIndex == index? animationData: ''}}">
+        <view class="travelerInfoShow">
+          <view class="travelerInfoName">{{item.chName}} {{item.pyXing}} {{item.pyMing}}</view>
+          <text class="travelerInfoSex">{{item.sex == 1? '男': '女'}}</text>
+          <text class="travelerInfoDate">{{item.idNum}}</text>
+        </view>
+        <view class="toEditInfo" data-type="edit" data-index="{{index}}" bindtap="toJumpWriteInfo">
+          <image src="../../images/editTraveler.png"></image>
+        </view>
+      </view>
+      <view class="travelerInfoDelete" data-index="{{index}}" data-id="{{item.id}}" catchtap="deleteTraveler"><text>删除</text></view>
+    </view>
+  </view>
+</view>

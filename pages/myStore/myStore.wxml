@@ -1,0 +1,24 @@
+<!--pages/myStore/myStore.wxml-->
+<view class="myStore">
+  <view class="showMyHead"><view><image src="{{userUrl}}"></image></view></view>
+  <view class="moreContentEnter">
+    <view class="itemEnter" bindtap="jumpToMyCenter">
+      <view class="myCenterEnter"><image src="../../images/personalCenter.png"></image></view>
+      <text>个人认证</text>
+    </view>
+    <view class="itemEnter" bindtap="jumpToMyBill">
+      <view class="myBillCenter"><image src="../../images/myBill.png"></image></view>
+      <text>我的账单</text>
+    </view>
+    <view class="itemEnter" bindtap="jumpToMyWallet">
+      <view class="myWalletEnter"><image src="../../images/myWallet.png"></image></view>
+      <text>我的钱包</text>
+    </view>
+    <view class="itemEnter" bindtap="jumpToProCenter">
+      <view class="proCenterEnter"><image src="../../images/productCenter.png"></image></view>
+      <text>产品中心</text>
+    </view>
+  </view>
+
+  <view class="toJumpToMyClient" bindtap="toJumpMyClient" wx:if="{{isAuth == 1}}">我的客户</view>
+</view>

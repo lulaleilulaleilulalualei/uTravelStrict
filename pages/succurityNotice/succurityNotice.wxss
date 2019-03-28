@@ -1,0 +1,41 @@
+/* pages/succurityNotice/succurityNotice.wxss */
+/* pages/quitChangeRule/quitChangeRule.wxss */
+.ruleBox {
+  width: auto;
+  height: 100%;
+  padding: 30rpx 30rpx 60rpx;
+}
+.h3Title {
+  font-size: 36rpx;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+}
+.h4Title {
+  font-size: 28rpx;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.pContent {
+  margin-bottom: 30rpx;
+}
+.pContent>text {
+  display: block;
+  font-size: 24rpx;
+  color: #000000;
+  line-height: 44rpx;
+  text-indent: 48rpx;
+}
+.pContent>text:not(:last-child) {
+  margin-bottom: 10rpx;
+}
+.pContent .itemPContent {
+  display: block;
+  font-size: 24rpx;
+  color: #000000;
+  line-height: 44rpx;
+}
+.pContent .specialNotice {
+  color: #F7372C;
+}

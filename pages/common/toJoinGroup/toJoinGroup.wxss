@@ -1,0 +1,72 @@
+.joinGroupBg {
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.joiniGroupBox {
+  width: auto;
+  height: auto;
+  padding: 40rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+.joinGroupTitle {
+  font-size: 36rpx;
+  color: #222222;
+  margin-bottom: 10rpx;
+  text-align: center;
+  font-weight: 600;
+}
+.joinGroupText {
+  font-size: 28rpx;
+  color: #222222;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+.joinGroupText>span {
+  color: #F7372C;
+}
+.groupUserHeadImg {
+  position: relative;
+  margin-bottom: 50rpx;
+}
+.groupUserHeadImg>view {
+  width: 96rpx;
+  height: 96rpx;
+  border: 1px solid #eee;
+  margin:0 auto;
+  position: relative;
+  border-radius: 50%;
+}
+.groupUserHeadImg>view>image {
+  border-radius: 50%;
+}
+.groupUserHeadImg>view>text {
+  position: absolute;
+  top:-20rpx;
+  left:-20rpx;
+  font-size: 18rpx;
+  color: #222222;
+  background: #FFDA4C;
+  border: 1px solid #FFFFFF;
+  border-radius: 15rpx;
+  padding: 4rpx 10rpx; 
+}
+.toJoinBtn {
+  width: 500rpx;
+  height: 90rpx;
+  background: #F7372C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #FFFFFF;
+}

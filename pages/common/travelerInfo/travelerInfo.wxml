@@ -1,0 +1,33 @@
+<template name="travelerInfo">
+  <view class="travelerInfo">
+    <view class="infoBox">
+      <view class="infoBoxTitle">出行人信息</view>
+      <scroll-view scroll-y="true" class="traverlerInfoList">
+        <view class="itemTravelerInfo" wx:for="{{userArr}}" wx:key="{{item.id}}">
+          <view class="itemInfoTitle">出行人 {{index + 1}}</view>
+          <view class="itemInfoShow">
+            <text>中文姓名：</text>
+            <text>{{item.chName}}</text>
+          </view>
+          <view class="itemInfoShow">
+            <text>姓(拼音)：</text>
+            <text>{{item.pyXing}}</text>
+          </view>
+          <view class="itemInfoShow">
+            <text>名(拼音)：</text>
+            <text>{{item.pyMing}}</text>
+          </view>
+          <view class="itemInfoShow">
+            <text>性别：</text>
+            <text>{{item.sex == 1? '男': '女'}}</text>
+          </view>
+          <view class="itemInfoShow">
+            <text>身份证号码：</text>
+            <text>{{item.idNum}}</text>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="closeTravelerInfoBox" bindtap="bindCloseTravelerBox"><text>关闭</text></view>
+    </view>
+  </view>
+</template>

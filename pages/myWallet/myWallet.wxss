@@ -1,0 +1,120 @@
+/* pages/myWallet/myWallet.wxss */
+.myWallet {
+  height: 100%;
+  width: 100%;
+  background: #F1F1F5;
+}
+.topIncomeShow {
+  width: auto;
+  height: auto;
+  background:#FFDA4C;
+  padding: 40rpx;
+  position: relative;
+}
+.topIncomeShow>text {
+  display: block;
+  font-size: 28rpx;
+  color: #000000;
+  margin-bottom: 10rpx;
+}
+.topIncomeShow>.showIncomeNum {
+  font-size: 88rpx;
+  color: #000000;
+}
+.toJumpBill {
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  font-size: 28rpx;
+  color: #222222;
+}
+
+.toGetDeposit {
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  padding: 0 20rpx 60rpx;
+  margin: 30rpx 20rpx 0;
+}
+.showToAccount {
+  width: auto;
+  padding: 30rpx 0;
+  display: flex;
+  border-bottom: 1px solid #EFEFEF;
+}
+.showToAccount>text {
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  margin-right: 60rpx;
+}
+.accountName {
+  display: flex;
+  align-items: center;
+}
+.accountName>image {
+  width: 28rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.accountName>text {
+  font-size: 26rpx;
+  color: #222222;
+}
+.needGetDepositNum {
+  padding: 30rpx 0;
+  border-bottom: 1px solid #EFEFEF;
+}
+.needGetDepositNum>text {
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  margin-bottom: 20rpx;
+}
+.needNumInp {
+  font-size: 72rpx;
+  color: #222222;
+  display: flex;
+  align-items: center;
+}
+.needNumInp>input {
+  display: block;
+  flex:1;
+  padding-left: 20rpx;
+  height: 130rpx;
+  font-size: 96rpx;
+  color: #222222;
+}
+
+.depositTextBox {
+  padding: 30rpx 0;
+}
+.depositTextBox>text {
+  display: block;
+  font-size: 24rpx;
+  color: #CC0000;
+}
+.depositAll {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.depositAll>text {
+  font-size: 26rpx;
+  color: #B0B0B0;
+}
+.depositAll>view {
+  font-size: 26rpx;
+  color: #4181FF;
+}
+.toGetDepositBtn {
+  width: 568rpx;
+  height: 88rpx;
+  margin: 0 auto;
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #000000;
+}

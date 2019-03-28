@@ -1,0 +1,7 @@
+/* pages/commentList/commentList.wxss */
+@import "../common/noMore/noMore.wxss"
+
+.commentList {
+  width: 100%;
+  height: auto;
+}

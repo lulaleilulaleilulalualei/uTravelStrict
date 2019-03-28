@@ -1,0 +1,23 @@
+<!--pages/giftCode/giftCode.wxml-->
+<view class="giftCode">
+  <view class="giftCodeBox">
+    <view class="giftCodeContain">
+      <view class="giftFurnish">
+        <view class="giftIconImg"><image src="../../images/gift_icon.png"></image></view>
+        <view class="giftFurnishName">由 <text>DFS</text> 为您提供</view>
+      </view>
+      <view class="conversionCode">
+        <view class="conversionCodeBox">
+          <view class="conversionCodeTitle">巧克力兑换码</view>
+          <view class="showConversionCode"></view>
+          <view class="conversionCodeNum">M1856655655555</view>
+          <view class="conversionCodeNotice">使用时，出示此码</view>
+        </view>
+        <view class="conversionCodeBottom">
+          <text>有效期</text>
+          <text>2018.09.15-2018.09.18</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* components/surpriseBox/surpriseBox.wxss */
+.surpriseBox {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.7)
+}
+
+.surpriseBoxContain {
+  width: 468rpx;
+  height: auto;
+  padding: 34rpx 34rpx 48rpx;
+  background: #fff;
+  font-size: 36rpx;
+  color: #000;
+  border-radius: 40rpx;
+  margin-bottom: 40rpx;
+}
+.supBoxTitle {
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+.supBoxIntroText {
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-size: 20rpx;
+  color: #000000;
+  margin-bottom: 20rpx;
+}
+.supCouponBox {
+  width: auto;
+  height: 420rpx;
+}
+.itemSupCoupon {
+  width: auto;
+  height: 180rpx;
+  position: relative;
+}
+.itemSupCoupon:not(:last-child) {
+  margin-bottom: 30rpx;
+}
+.itemSupCouponBg {
+  width: auto;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.itemSupCouponBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.showItemSupTitle {
+  font-size: 60rpx;
+  color: #000000;
+  font-weight: 700;
+}
+.showItemSupTitle>text {
+  font-size: 80rpx;
+  color: #000000;
+}
+.showItemSupBtn {
+  width: 250rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #FFDA4C;
+  border: 4rpx solid #000000;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  color: #000000;
+  position: relative;
+  top: -10rpx;
+}
+
+.surpriseBoxClose {
+  width: 72rpx;
+  height: 72rpx;
+}

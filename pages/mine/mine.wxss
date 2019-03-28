@@ -1,0 +1,253 @@
+/* pages/mine/mine.wxss */
+@import "../common/noMore/noMore.wxss"
+
+.mineBox {
+  width: auto;
+  height: auto;
+  padding: 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+.mineTop {
+  width: auto;
+  height: 126rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 50rpx;
+  border-bottom: 1px solid #EFEFEF;
+  margin-bottom: 50rpx;
+}
+.mineHead {
+  display: flex;
+}
+.mineHeadImg {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border:1px solid #eee;
+}
+.mineHeadName {
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mineHeadName>text {
+  display: block;
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: 600;
+  max-width: 300rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.productOperate {
+  display: flex;
+  align-items: center; 
+}
+.itemOperate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.itemOperate:not(:last-child) {
+  margin-right: 60rpx;
+}
+.itemOperate>view {
+  width: 68rpx;
+  height: 62rpx;
+}
+.itemOperate>text {
+  font-size: 24rpx;
+  color: #000000;
+}
+
+.mineOrdersList {
+  width: auto;
+  height: auto;
+}
+.mineOrdersListBox {
+  width: auto;
+  height: auto;
+}
+.mineOrdersTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.mineOrdersTitle>text {
+  height: 60rpx;
+  font-size: 48rpx;
+  color: #000000;
+  font-weight: 600;
+}
+.mineOrdersTitle>view {
+  width: 70rpx;
+  height: 70rpx;
+}
+.itemMineOrders {
+  box-shadow: 0 10rpx 56rpx 0 rgba(111,113,115,0.15);
+  border-radius: 28rpx;
+  margin-bottom: 20rpx;
+  width: auto;
+  height: 168rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+.itemOrdersName>view{
+  width: 450rpx;
+  font-size: 32rpx;
+  color: #000000;
+  margin-bottom: 10rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.itemOrdersName>text {
+  display: block;
+  font-size: 24rpx;
+  color: #A0ABB1;
+  margin-bottom: 10rpx;
+}
+.itemOrdersStatus {
+  font-size: 32rpx;
+}
+.buildGroupIng {
+  color: #FFDA4C;
+}
+.successBuild {
+  color: #F7372C;
+}
+.hadTravel {
+  color: #E1E6E8;
+}
+
+.toAccredit {
+  width: auto;
+  height: 700rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.toAccredit>view {
+  width: 360rpx;
+  height: 160rpx;
+  margin-bottom: 40rpx;
+}
+.toAccredit>text {
+  display: block;
+  font-size: 32rpx;
+  color: #939290;
+  margin-bottom: 50rpx;
+}
+.toAccredit>button {
+  width: 240rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #353742;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+}
+
+.mineOrdersBlank {
+  width: auto;
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mineOrdersBlank>view {
+  width: 224rpx;
+  height: 160rpx;
+  margin-bottom: 50rpx;
+}
+.mineOrdersBlank>text {
+  font-size: 32rpx;
+  color: #939290;
+}
+
+.joinMyStore {
+  max-width: 200rpx;
+  padding: 8rpx 10rpx;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #000000;
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+
+.joinColloctTop {
+  position: fixed;
+  top:20rpx;
+  right: 20rpx;
+  z-index: 1001;
+  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  background: #FFDA4C;
+  box-shadow: 0 0 30rpx 0 #FFDA4C;
+}
+.joinColloctTop::before {
+  content:'';
+  display: block;
+  position: absolute;
+  top: -8rpx;
+  left: 50%;
+  margin-left: -8rpx;
+  width: 16rpx;
+  height: 16rpx;
+  transform: rotate(45deg);
+  background: #FFDA4C;
+}
+.joinColloctTopBox>text {
+  display: block;
+  color: #000;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+
+.joinMiniNoticeBox {
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 1002;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+.showNoticeImgBox {
+  width: 620rpx;
+  height: 720rpx;
+  margin-left: 84rpx;
+  margin-top: 40rpx;
+}
+
+.toCloseNoticeBox {
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  margin-left: -140rpx;
+  width: 280rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 35rpx;
+  border: 1px solid #fff;
+}

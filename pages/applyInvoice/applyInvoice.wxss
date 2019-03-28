@@ -1,0 +1,147 @@
+/* pages/applyInvoice/applyInvoice.wxss */
+.applyInvoice {
+  width: auto;
+  height: 100%;
+  background: #F1F1F5;
+  padding: 30rpx 20rpx;
+}
+.showInvoice {
+  width: auto;
+  height: auto;
+  padding: 30rpx 20rpx 0;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+.showInvoice>text {
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  margin-bottom: 30rpx; 
+}
+.showInvoiceType {
+  display: flex;
+  padding-bottom: 30rpx
+}
+.itemInvoiceType {
+  width: 206rpx;
+  height: 96rpx;
+  border: 2rpx solid #9F9F9F;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s;
+}
+.itemInvoiceType:not(:last-child) {
+  margin-right: 20rpx;
+}
+.itemInvoiceType>view {
+  font-size: 28rpx;
+  color: #222222;
+  transition: all 0.2s;
+}
+.itemInvoiceType>text {
+  display: block;
+  font-size: 24rpx;
+  color: #A7A7A7;
+}
+.itemInvoiceType.activeShow {
+  border-color: #FFDA4C;
+}
+.itemInvoiceType.activeShow>view {
+  color: #FFDA4C;
+}
+
+.itemInvoiceInfo {
+  width: auto;
+  height: 100rpx;
+  border-top: 1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+}
+.itemInvoiceInfo>text, .itemInvoiceAddressInfo>text {
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  width: 168rpx;
+  margin-right: 40rpx;
+}
+.itemInvoiceInfo>input {
+  flex: 1;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #222222;
+}
+.itemInvoiceInfo>view:not(.getWxInvoice) {
+  flex: 1;
+  font-size: 28rpx;
+  color: #222222;
+}
+.itemInvoiceInfo>view.invoicePrice {
+  font-size: 28rpx;
+  color: #F7372C;
+}
+.itemInvoiceAddressInfo {
+  width: auto;
+  height: auto;
+  padding: 30rpx 0;
+  border-top: 1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+}
+.itemInvoiceAddressInfo>.toShowSendAddress .sendAddressInfo {
+  font-size: 32rpx;
+  color: #222222;
+  display: flex;
+}
+.itemInvoiceAddressInfo>.toShowSendAddress .sendAddressInfo>text {
+  display: block;
+  font-size: 28rpx;
+  color: #B0B0B0;
+  margin-left: 10rpx;
+}
+.itemInvoiceAddressInfo>.toShowSendAddress .sendDetailAddress {
+  font-size: 28rpx;
+  color: #222222;
+}
+.toShowSendAddress {
+  flex: 1;
+}
+.getWxInvoice {
+  padding: 0 10rpx;
+  height: 50rpx;
+  width: 170rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #222222;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+  margin-left: 10rpx;
+}
+
+
+.getInvoiceBtn {
+  width: auto;
+  height: 88rpx;
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #000000;
+  margin-bottom: 30rpx;
+}
+.getInvoiceIntro {
+  width: auto;
+  height: auto;
+  font-size: 28rpx;
+  color: #000000;
+}
+
+

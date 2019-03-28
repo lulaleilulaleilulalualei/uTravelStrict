@@ -1,0 +1,11 @@
+<template name="giftBox">
+  <view class="showGiftDetail" data-signbox="1" catchtap="closeGiftDetailBox">
+    <scroll-view scroll-y="true" class="giftDetailBox">
+      <view class="giftShowImg" wx:if="{{proPic}}"><image src="{{proPic}}?x-oss-process=style/thumb650x380"></image></view>
+      <view class="giftShowDesc">
+        <view>{{proName}}</view>
+        <text>{{proDesc}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</template>

@@ -1,0 +1,40 @@
+<!--pages/myCenter/myCenter.wxml-->
+<view class="myCenter">
+  <view class="showMyHead"><view><image src="{{userUrl}}"></image></view></view>
+  <view class="itemInfoShow">
+    <view>微信名</view>
+    <text>{{userName}}</text>
+  </view>
+  <view class="toStartCheck" bindtap="toRealName">
+    <text>实名认证</text>
+    <view class="{{(isAuth == 0 || isAuth == 3) && 'noCheck'}}">
+      {{isAuth == 0? '未认证': isAuth == 2? '审核中':isAuth == 3? '重新认证' : '已认证'}}
+    </view>
+  </view>
+  <view wx:if="{{isAuth == 3}}" class="checkReject">
+    <text>认证被驳回：</text>
+    <view class="authRejectDue">原因：<text>{{authObj.checkContent}}</text></view>
+  </view>
+  <block wx:if="{{isAuth == 1}}">
+    <view class="itemInfoShow">
+      <view>姓名</view>
+      <text>{{authObj.realName}}</text>
+    </view>
+    <view class="itemInfoShow">
+      <view>手机号</view>
+      <text>{{authObj.tel}}</text>
+    </view>
+    <view class="itemInfoShow">
+      <view>身份证号</view>
+      <text>{{authObj.idNum}}</text>
+    </view>
+    <view class="itemInfoShow">
+      <view>渠道商</view>
+      <text>{{authObj.channelName}}</text>
+    </view>
+    <!-- <view class="itemInfoShow">
+      <view>城市</view>
+      <text>{{areaName}}</text>
+    </view> -->
+  </block>
+</view>

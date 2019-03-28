@@ -1,0 +1,44 @@
+<!--pages/myClient/myClient.wxml-->
+<import src="../common/noMore/noMore.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="myClient">
+  <view class="topMyInfo">
+    <view class="mineHead">
+      <image src="{{userImg}}"></image>
+    </view>
+    <view class="mineInfo">
+      <view class="mineName">{{userName}}</view>
+      <view class="mineClientNum">客户数：{{clientNum}}</view>
+    </view>
+  </view>
+  <view class="myClientList">
+    <scroll-view scroll-y="true" class="myClientListScroll" bindscrolltolower="toLoadMore" wx:if="{{clientArr.length != 0}}">
+      <view class="itemClient" wx:for="{{clientArr}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toLookClientInfo">
+        <view class="itemClientLeft">
+          <view class="itemClientHead">
+            <view class="itemClientHeadImg"><image src="{{item.avatar}}"></image></view>
+            <view class="itemClientHeadSex" wx:if="{{item.gender != 2}}">
+              <image wx:if="{{item.gender == 0}}" src="../../images/female.png"></image>
+              <image wx:if="{{item.gender == 1}}" src="../../images/male.png"></image>
+            </view>
+          </view>
+          <view class="itemClientInfo">
+            <view class="itemClientNickName">{{item.nickName}}<text wx:if="{{item.realName}}">({{item.realName}})</text></view>
+            <view class="itemClientPhone" wx:if="{{item.tel}}">手机号：<text data-index="{{index}}" catchtap="toCallUser">{{item.tel}}</text></view>
+            <view class="itemClientBottomInfo">加入时间：{{item.createdTime}}</view>
+          </view>
+        </view>
+        <view class="itemClientRight"></view>
+      </view>
+      <template wx:if="{{isToBottom}}" is="noMore" />
+    </scroll-view>
+
+    <view class="noDataShow" wx:if="{{clientArr.length == 0}}">
+      <view><image src="../../images/noData.png"></image></view>
+      <text>您还没有客户，请加油哦！</text>
+    </view>
+  </view>
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>

@@ -1,0 +1,52 @@
+<!--pages/commentList/commentList.wxml-->
+<import src="../common/noMore/noMore.wxml" />
+<import src="../common/noData/noData.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="commentList">
+
+  <view class="commentBox" wx:if="{{commentArr.length != 0}}">
+    <view class="itemUserComment" wx:for="{{commentArr}}" wx:key="{{index}}">
+        <view class="itemUserCommentBox">
+          <view class="itemUserCommentInfo">
+            <view class="itemUserComInfoBox">
+              <view class="itemUserComHeadImg"><image src="{{item.avatar}}"></image></view>
+              <view class="itemUserComName">
+                <text>{{item.nickName}}</text>
+                <view>
+                  <image wx:for="{{item.score}}" 
+                          wx:for-index="levelNum" 
+                          wx:key="levelNum" src="../../images/commet_level.png"></image>
+                </view>
+              </view>
+            </view>
+            <text>{{item.subTime}}</text>
+          </view>
+          <view class="itemUserCommentText">{{item.content}}</view>
+          <wxs module="imgArr" />
+          <scroll-view scroll-x="{{true}}" wx:if="{{item.pictures != ''}}" class="itemUserCommentImgs">
+              <block wx:for="{{imgArr.toImgArr(item.pictures)}}" wx:key="{{imgInd}}" wx:for-item="img" wx:for-index="imgInd">
+                <view class="userCommentImgShow" data-index="{{index}}" data-imgInd="{{imgInd}}" catchtap="previewImg">
+                    <image src="{{img}}?x-oss-process=style/thumb185x185" lazy-load="true"></image>
+                </view>
+              </block>
+          </scroll-view>
+        </view>
+    </view>
+    <template wx:if="{{isToBottom}}" is="noMore" />
+  </view>
+
+  <template wx:if="{{commentTotal == 0}}" is="noData" data="{{noDataText}}" />
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>
+
+<wxs module="imgArr">
+  var toImgArr = function(str) {
+    if(str) {
+      return str.split(',')
+    }
+  }
+  module.exports = {
+    toImgArr: toImgArr
+  }
+</wxs>

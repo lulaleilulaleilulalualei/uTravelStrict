@@ -1,0 +1,72 @@
+<!--pages/myBill/myBill.wxml-->
+<import src="../common/noMore/noMore.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="myBill">
+  <view class="topNavCut">
+    <view wx:for="{{navArr}}" 
+          wx:key="{{index}}" 
+          class="{{item.isShow? 'activeShow': ''}}"
+          data-index="{{index}}"
+          bindtap="cutNav"
+          ><text>{{item.name}}</text></view>
+  </view>
+  <view class="listShowBox">
+    <!-- 进账 -->
+    <scroll-view style="postion: relative" wx:if="{{defaultType == 'in'}}" scroll-y bindscrolltolower="toLoadMoreIn"> 
+      <view class="showInInfoBox">
+        <wxs module="parseJson" />
+        <view class="itemInInfoShow"  wx:for="{{inDataArr}}" wx:key="{{index}}">
+          <view class="itemInLeft">
+            <view class="itemInTitle">{{parseJson.toJoseParse(item.routeJson).title}}</view>
+            <view class="itemInOrder">订单号：{{item.platTransNo}}</view>
+            <view class="itemInTime">{{item.inTime}}</view>
+             <view class="itemInUserInfo">
+              <view> <image src="{{item.avatar}}"></image></view>
+              <text>{{item.nickName}}</text>
+            </view>
+          </view>
+          <view class="itemInRight">
+            <text>进账</text>
+            <text class="itemInRatio">{{item.ratio*100}}%</text>
+            <text style="color: red;">+￥{{item.inMoney}}</text>
+          </view>
+        </view>
+        <template wx:if="{{isInToBottom}}" is="noMore" />
+      </view>
+      <view class="noDataShow" wx:if="{{inDataArr.length == 0}}">
+        <view><image src="../../images/noData.png"></image></view>
+        <text>{{noInDataText}}</text>
+      </view>
+    </scroll-view>
+    <!-- 提现 -->
+    <scroll-view style="postion: relative" wx:if="{{defaultType == 'out'}}" scroll-y bindscrolltolower="toLoadMoreOut"> 
+      <view class="showOutInfoBox">
+        <view class="itemInoutfoShow" wx:if="{{outDataArr.length != 0}}" wx:for="{{outDataArr}}" wx:key="{{index}}">
+          <view class="itemOutLeft">
+            <view class="itemOutTitle">提现</view>
+            <view class="itemOutTime">{{item.applyTime}}</view>
+          </view>
+          <view class="itemOutRight">-￥{{item.disMoney}}</view>
+        </view>
+        <template wx:if="{{isOutToBottom}}" is="noMore" />
+      </view>
+      <view class="noDataShow" wx:if="{{outDataArr.length == 0}}">
+        <view><image src="../../images/noData.png"></image></view>
+        <text>{{noOutDataText}}</text>
+      </view>
+    </scroll-view>
+  </view> 
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>
+
+<wxs module="parseJson">
+  var toJoseParse = function(json) {
+    return JSON.parse(json)
+  }
+
+  module.exports = {
+    toJoseParse: toJoseParse
+  }
+</wxs>

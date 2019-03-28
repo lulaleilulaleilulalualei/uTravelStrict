@@ -1,0 +1,142 @@
+/* pages/writeComment/writeComment.wxss */
+
+.writeCommentBox {
+  width: auto;
+  height: 100%;
+  background: #F1F1F5;
+  padding-bottom: 150rpx;
+}
+.showProInfo {
+  width: auto;
+  height: auto;
+  padding: 30rpx 40rpx;
+  background: #fff;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.showProCover {
+  width: 258rpx;
+  height: 182rpx;
+  margin-right: 20rpx;
+  border-radius: 4rpx;
+}
+.showProTxtInfo {
+  flex: 1;
+  height: 182rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.showProTitle {
+  font-size: 32rpx;
+  color: #384146;
+  line-height: 40rpx;
+  font-weight: 600;
+  width: 100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.showProBuyTime {
+  font-size: 24rpx;
+  color: #A2AFB5;
+}
+.showProPrice {
+  font-size: 32rpx;
+  color: #F7372C;
+}
+
+.commentStage {
+  width: auto;
+  padding: 0 40rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.commentStage>text {
+  display: block;
+  font-size: 28rpx;
+  color: #000000;
+  margin-right: 40rpx;
+}
+.starList {
+  display: flex;
+  align-items: center;
+}
+.itemStar {
+  width: 40rpx;
+  height: 38rpx;
+}
+.itemStar:not(:last-child) {
+  margin-right: 40rpx;
+}
+
+.writeComment {
+  width: auto;
+  height: auto;
+  background: #fff;
+}
+.wirteCommentTextBox {
+  width: auto;
+  height: auto;
+  padding: 30rpx 40rpx;
+  border-bottom: 1px solid #EFEFEF;
+
+}
+.wirteCommentTextBox>textarea {
+  display: block;
+  min-height: 180rpx;
+  width: auto;
+  font-size: 28rpx;
+  color: #384146;
+}
+
+.selectProPhoto {
+  width: auto;
+  height: auto;
+  padding: 30rpx 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.selectProPhoto>view {
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+}
+.selectProPhoto>view:not(:nth-child(4n)) {
+  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.deleteToImg {
+  position: absolute;
+  top: 6rpx;
+  right: 6rpx;
+  width: 30rpx;
+  height: 30rpx;
+  z-index: 10;
+}
+
+.completeBtn {
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.completeBtn>view {
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  width: 670rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

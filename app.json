@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "page/contact/contact",
+    "pages/mine/mine",
+    "pages/productDetail/productDetail",
+    "pages/commentList/commentList",
+    "pages/buyProduct/buyProduct",
+    "pages/groupList/groupList",
+    "pages/writeOrders/writeOrders",
+    "pages/addTraveler/addTraveler",
+    "pages/writeTravelerInfo/writeTravelerInfo",
+    "pages/discountCoupon/discountCoupon",
+    "pages/applyInvoice/applyInvoice",
+    "pages/usualAddress/usualAddress",
+    "pages/quitChangeRule/quitChangeRule",
+    "pages/joinGrouping/joinGrouping",
+    "pages/hadBuildGroup/hadBuildGroup",
+    "pages/writeComment/writeComment",
+    "pages/managerPage/managerPage",
+    "pages/giftCode/giftCode",
+    "pages/shareGroup/shareGroup",
+    "pages/succurityNotice/succurityNotice",
+    "pages/myStore/myStore",
+    "pages/myCenter/myCenter",
+    "pages/myBill/myBill",
+    "pages/myWallet/myWallet",
+    "pages/proCenter/proCenter",
+    "pages/realName/realName",
+    "pages/scanTrust/scanTrust",
+    "pages/moneyApplySuc/moneyApplySuc",
+    "pages/checkingTicket/checkingTicket",
+    "pages/policyDetail/policyDetail",
+    "pages/myClient/myClient"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFDA4C",
+    "navigationBarTitleText": "深度体验旅行",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/selected_home.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/selected_mine.png"
+      }
+    ],
+    "backgroundColor": "#fff",
+    "color": "#4F4F4F",
+    "selectedColor": "#4F4F4F"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于定位您的口袋店开通地区"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "uploadFile": 10000,
+    "connectSocket": 10000
+  }
+}

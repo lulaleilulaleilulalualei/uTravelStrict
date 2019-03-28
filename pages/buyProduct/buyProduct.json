@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择日期和份数",
+  "usingComponents": {
+    "date-select": "/components/dateSelect/dateSelect"
+  }
+}

@@ -1,0 +1,52 @@
+<!--pages/applyInvoice/applyInvoice.wxml-->
+<view class="applyInvoice">
+  <view class="showInvoice">
+    <text>发票形式</text>
+    <view class="showInvoiceType">
+      <view class="itemInvoiceType {{item.isDefaultShow? 'activeShow': ''}}" 
+            wx:for="{{invoiceType}}" 
+            wx:key="{{index}}"
+            data-index="{{index}}"
+            bindtap="cutInvoiceType">
+        <view>{{item.name}}</view>
+        <text>{{item.textIntro}}</text>
+      </view>
+    </view>
+
+    <view class="paperInvoice" wx:if="{{changeInvoiceType !== 0}}">
+      <view class="itemInvoiceInfo">
+        <text>发票抬头</text>
+        <input type="text" placeholder='请填写发票抬头' value="{{invoiceTitle}}" placeholder-style='color: #B0B0B0;'></input>
+        <view class="getWxInvoice" wx:if="{{isDefaultAgree == 1}}" bindtap="getWxInvoice">获取发票抬头</view>
+        <button class="getWxInvoice" wx:if="{{isDefaultAgree == 2}}" open-type="openSetting">获取授权</button>
+        <button class="getWxInvoice" wx:if="{{isDefaultAgree == 3}}" bindtap="toOpenSetting">获取授权</button>
+      </view>
+      <view class="itemInvoiceInfo">
+        <text>纳税人识别号</text>
+        <input type="text" placeholder='请填写纳税人识别号' value="{{invoiceCode}}" placeholder-style='color: #B0B0B0;'></input>
+      </view>
+      <view class="itemInvoiceInfo">
+        <text>发票明细</text>
+        <view>旅游服务费</view>
+      </view>
+      <view class="itemInvoiceInfo" wx:if="{{changeInvoiceType == 1}}">
+        <text>E-mail</text>
+        <input placeholder="电子发票将发送至此邮箱" bindblur="getEmailUrl" placeholder-style="color: #B0B0B0;" type="text"></input>
+      </view>
+      <view class="itemInvoiceInfo" wx:if="{{changeInvoiceType == 2}}">
+        <text>配送费用</text>
+        <view class="invoicePrice">¥10</view>
+      </view>
+      <view class="itemInvoiceAddressInfo" wx:if="{{changeInvoiceType == 2}}">
+        <text>配送地址</text>
+        <view class="toShowSendAddress" bindtap="jumpToSendAddress">
+          <view class="sendAddressInfo">{{addressObj? addressObj.userName: ''}}<text>{{addressObj? addressObj.userPhone: '请填写配送地址'}}</text></view>
+          <view class="sendDetailAddress">{{addressObj? addressObj.address: ''}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class="getInvoiceBtn" bindtap="bindGetInvoice"><text>{{btnText}}</text></view>
+  <view class="getInvoiceIntro">{{invoiceNotice}}</view>
+</view>

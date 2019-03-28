@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="containCover">
+    <image src="../../images/containCover.png"></image>
+  </view>
+</view>

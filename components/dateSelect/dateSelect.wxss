@@ -1,0 +1,87 @@
+/* components/dateSelect/dateSelect.wxss */
+.dateSelectView {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+}
+.weekBgView {
+  width: auto;
+  height: 54rpx;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.weekView {
+  font-size: 24rpx;
+  color: #6D6D6D;
+}
+.weekView:first-child, .weekView:last-child {
+  color: #FF3B30;
+}
+.canlendarTopView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 60rpx;
+  background: #EFF0F2;
+  font-size: 30rpx;
+  color: #373A3E;
+}
+.leftBgView {
+  margin-right: 60rpx;
+  font-size: 36rpx;
+  padding: 0 20rpx;
+}
+.rightBgView {
+  margin-left: 60rpx;
+  font-size: 36rpx;
+  padding: 0 20rpx;
+}
+.dateBgView {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1rpx solid  #F9F9F9;
+}
+.dateBgView>view {
+ width: 107rpx;
+ height: 102rpx;
+ border-bottom: 1px solid #E7E7E7; 
+}
+
+.datesView {
+  height:100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #373A3E;
+  position: relative;
+}
+.datesView .currentPrice {
+  font-size: 20rpx;
+  color: #FF3B30;
+}
+.noCanToSelect {
+  color: #ABABAB;
+}
+.datesView.activeSelectDay {
+  color: #fff;
+  background: #FFDA4C;
+}
+.datesView.activeSelectDay .currentPrice {
+  color: #fff;
+}
+
+.showDiscountsImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 10rpx;
+}

@@ -1,0 +1,42 @@
+/* pages/scanTrust/scanTrust.wxss */
+.scanTrust {
+  width: 100%;
+  height: auto;
+  padding-top: 140rpx;
+}
+.itemShowUserInfo {
+  font-size: 36rpx;
+  color: #000;
+  margin-bottom: 32rpx;
+  text-align: center;
+}
+.itemShowUserInfo>image {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+}
+.showTrustBtn {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.itemTrustBtn,.itemCancelBtn {
+  width: 600rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 38rpx;
+  margin: 0 atuo;
+}
+.itemTrustBtn {
+  background: #FFDA4C;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.itemCancelBtn {
+  background: #ccc;
+  color: #848484;
+}

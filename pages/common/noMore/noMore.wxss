@@ -1,0 +1,10 @@
+.noMoreData {
+  padding:20rpx;
+  text-align: center;
+  width:auto;
+  height:auto;
+}
+.noMoreData>text {
+  font-size:28rpx;
+  color:#98989d;
+}

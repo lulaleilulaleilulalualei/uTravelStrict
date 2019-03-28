@@ -1,0 +1,17 @@
+/* pages/groupList/groupList.wxss */
+@import "../common/noMore/noMore.wxss"
+@import "../common/toJoinGroup/toJoinGroup.wxss"
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+ .groupList {
+   width: 100%;
+   height: auto;
+ }
+
+.groupListBox {
+  padding: 0 30rpx;
+}

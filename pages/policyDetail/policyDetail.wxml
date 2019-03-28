@@ -1,0 +1,4 @@
+<!--pages/policyDetail/policyDetail.wxml-->
+<view class="policyDetail">
+  保险详情
+</view>

@@ -1,0 +1,138 @@
+/* pages/discountCoupon/discountCoupon.wxss */
+@import "../common/noMore/noMore.wxss"
+
+.couponBox {
+  width: 100%;
+  height: 100%;
+  background: #F1F1F5;
+}
+.couponBoxContent {
+  width: auto;
+  height: auto;
+  padding-top: 20rpx;
+}
+.itemCoupon {
+  width: auto;
+  height: 180rpx;
+  display: flex;
+  margin: 20rpx 30rpx;
+  position: relative;
+}
+.canUseCouponNum {
+  width: 180rpx;
+  height: atuo;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  background: #fff;
+  padding: 20rpx 0 30rpx;
+  border-top-right-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  border-right: 1px dashed #E8E8E8;
+  overflow: hidden;
+}
+.showCouponNum {
+  font-size: 32rpx;
+  color: #FFDA4C;
+  margin-bottom: 4rpx;
+}
+.showCouponNum>text {
+  font-size: 72rpx;
+  color: #FFDA4C;
+}
+.couponGiftImg {
+  width: 62rpx;
+  height: 58rpx;
+  margin-bottom: 30rpx;
+}
+.canUseCouponNum>text {
+  font-size: 24rpx;
+  color: #A0ABB1;
+}
+.couponIntro {
+  background: #fff;
+  flex: 1;
+  height: auto;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40rpx 0 30rpx 32rpx;
+  border-top-left-radius: 16rpx;
+  border-bottom-left-radius: 16rpx;
+  overflow: hidden;
+  position: relative;
+}
+.couponIntroName {
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+  position: relative;
+  z-index: 1;
+}
+.couponIntroType {
+  font-size: 24rpx;
+  color: #A0ABB1;
+  position: relative;
+  z-index: 1;
+}
+.couponPastDue {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 130rpx;
+  height: 120rpx;
+}
+
+.pastDueCoupon .canUseCouponNum,.pastDueCoupon  .couponIntro {
+  background: #F6F6FC;
+}
+.itemCoupoShade {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.nohadUserCoupon {
+  width: auto;
+  margin:20rpx 30rpx;
+  height: 120rpx;
+  display: flex;
+}
+.nouseText {
+  flex:1;
+  font-size: 32rpx;
+  color: #cdcdcd;
+  border-radius: 8rpx;
+  border-top-left-radius:16rpx;
+  border-bottom-left-radius:16rpx;
+  overflow:hidden;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+}
+.noUseIcon {
+  height: 100%;
+  width:180rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  border-top-right-radius:16rpx;
+  border-bottom-right-radius:16rpx;
+  border-right:1px dashed #E8E8E8;
+  overflow:hidden;
+  background-color: #fff;
+}
+.noUseIcon>image {
+  width: 60rpx;
+  height: 60rpx;
+}

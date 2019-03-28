@@ -1,0 +1,62 @@
+<!--pages/shareGroup/shareGroup.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/noData/noData.wxml" />
+<import src="../common/shareBtn/shareBtn.wxml" />
+
+<view class="shareGroup">
+  <view class="lookProductDetailBox">
+    <view class="lookProductDetail">
+      <view class="showProductInfo">
+        <view class="showProductImg"><image src="{{ordersObj.thumb}}"></image></view>
+        <view class="showProductText">
+          <view class="productTitle">{{ordersObj.goodsName}}</view>
+          <text class="toLookProductDetail" bindtap="jumpToProductDetail">查看详情</text>
+          <view class="productPrice">¥ {{ordersObj.adultPrice}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 查看拼团信息 -->
+  <view class="lookGroupInfo">
+    <scroll-view scroll-x="true" class="showAllGroupHead">
+      <view class="itemUserHead" wx:for="{{ordersObj.batchUsers}}" wx:key="{{index}}">
+        <text wx:if="{{item.applyNum > 1}}" class="toBuyNum">{{item.applyNum}}</text>
+        <view><image src="{{item.avatar}}"></image></view>
+        <text class="groupOrganizer" wx:if="{{index === 0}}">发起人</text>
+      </view>
+    </scroll-view>
+    <view class="stillNeedNum">还差 <text>{{ordersObj.oddApplyNum}}</text> 人拼团成功</view>
+  </view>
+
+  <!-- 剩余时间 -->
+  <view class="remainTime">
+    <text>剩余</text>
+    <view>{{hour}}</view>
+    <text>小时</text>
+    <view>{{minute}}</view>
+    <text>分</text>
+    <view>{{second}}</view>
+    <text>秒</text>
+  </view>
+
+  <!-- 参与拼团 -->
+  <view class="joinGroupBox">
+    <view class="joinGroupBoxText" bindtap="jumpToWriteOrders">参与拼团</view>
+    <view class="accreditBtn" wx:if="{{isAccredit != 1}}">
+        <button wx:if="{{isAccredit == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo"></button>
+        <button wx:if="{{isAccredit == 2}}" open-type="openSetting"></button>
+        <button wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting"></button>
+      </view>
+  </view>
+  <view class="joinGroupNotice">
+    <view>
+      <text>拼单规则 </text>
+      <text>分享拼团 · 人满成团 · 人不满退款</text>
+    </view>
+  </view>
+
+  <template wx:if="{{ordersObj.batchStatus == 2}}" is="noData" data="{{noDataText}}"/>
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+  <template wx:if="{{isShowHomeBtn}}" is="shareBtn" />
+</view>

@@ -1,0 +1,80 @@
+/* pages/giftCode/giftCode.wxss */
+.giftCode {
+  width: auto;
+  height: 100%;
+  padding: 0 30rpx;
+  background: #FFDA4C;
+}
+.giftCodeBox {
+  width: auto;
+  height: auto;
+  padding-top: 60rpx;
+}
+.giftCodeContain {
+  width: auto;
+  height: auto;
+  background: #fff;
+  border-radius: 8rpx;
+}
+.giftFurnish {
+  width: auto;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+}
+.giftIconImg {
+  width: 54rpx;
+  height: 48rpx;
+  margin-right: 30rpx;
+}
+.giftFurnishName {
+  font-size: 32rpx;
+  color: #818181;
+}
+.giftFurnishName>text {
+  color: #000000;
+}
+.conversionCode {
+  width: auto;
+  height: auto;
+  padding: 0 20rpx;
+}
+.conversionCodeBox {
+  width: auto;
+  height: auto;
+  padding: 70rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dashed #CFCFCF;
+}
+.conversionCodeTitle {
+  font-size: 36rpx;
+  color: #000000;
+  margin-bottom: 30rpx;
+}
+.showConversionCode {
+  width: 600rpx;
+  height: 120rpx;
+  margin-bottom: 10rpx;
+}
+.conversionCodeNum {
+  font-size: 24rpx;
+  color: #959595;
+  margin-bottom: 20rpx;
+}
+.conversionCodeNotice {
+  font-size: 32rpx;
+  color: #000000;
+}
+.conversionCodeBottom {
+  width: auto;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #828282;
+}

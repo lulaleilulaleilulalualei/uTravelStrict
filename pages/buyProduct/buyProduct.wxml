@@ -1,0 +1,109 @@
+<!--pages/buyProduct/buyProduct.wxml-->
+<import src="../common/toJoinGroup/toJoinGroup.wxml" />
+<import src="../common/feeDetail/feeDetail.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="buyProduct">
+<!-- 日期选择 -->
+  <date-select wx:if="{{defaultShowDateSelect}}" 
+              rtId="{{rtId}}"
+              startTime="{{startTime}}"
+              bindselectdayevent="getSelectDay" 
+              bindloadStatus="getLoadStatus"></date-select>
+  <!-- 当天成团数 -->
+  <view class="newDayGroup" wx:if="{{false}}">
+    <view class="allGroup" bindtap="toJumpGroupList">
+      <view class="showAllGroupNum">{{groupTotal}}个旅行团在邀人{{groupTotal != 0? '，可直接参与': ''}}</view>
+      <view class="toGroupList" >查看更多</view>
+    </view>
+
+    <view class="partGroup" wx:if="{{currentGroup.length != 0}}">
+      <view class="itemGroup" wx:for="{{currentGroup}}" wx:key="{{key}}">
+        <view class="groupUser">
+          <view><image src="{{item.avatar}}"></image></view>
+          <text>{{item.nickName}}</text>
+        </view>
+        <view class="toJoinGroup">
+          <view class="toJoinGroupText">
+            <view>还差{{item.oddApplyNum}}人拼成</view>
+          </view>
+          <view class="toJoinGroupBox" data-index="{{index}}" bindtap="toJoinGroup">去拼团</view>
+        </view> 
+      </view>
+    </view>
+
+  </view>
+  <!-- 选择份数 -->
+  <view class="productNum">
+    <view class="productNumBox" style="position: {{buyNumPosition}}">
+    <view class="productNumTitle">
+      <text>选择份数</text>
+      <text class="buyProNotice" wx:if="{{selectDay && selectDay.surplusNum !== null}}">剩余{{selectDay.surplusNum}}份</text>
+    </view>
+    <view class="itemTypeSelect">
+      <view class="itemTypeDesc">
+        <view class="itemTypeText">
+          <view>成人</view>
+          <!-- <text>12周岁(含)以上</text> -->
+        </view>
+        <view wx:if="{{selectDay}}" class="itemTypePrice">单价￥{{adultPrice}}</view>
+      </view>
+      <view class="numSelect">
+        <view data-type="0" bindtap="toMinusNum" class="toMinusNum {{adultNum != 0? 'gtNumZero':''}}"></view>
+        <view class="peopleNum">{{adultNum}}</view>
+        <view data-type="0" bindtap="toAddNum" class="toAddNum"></view>
+      </view>
+    </view>
+    <view class="itemTypeSelect" wx:if="{{childrenPrice != 0}}">
+      <view class="itemTypeDesc">
+        <view class="itemTypeText">
+          <view>儿童</view>
+          <text>1.2米(含)以上</text>
+        </view>
+        <view wx:if="{{selectDay}}" class="itemTypePrice">单价￥{{childrenPrice}}</view>
+      </view>
+      <view class="numSelect">
+        <view data-type="1" bindtap="toMinusNum" class="toMinusNum {{childrenNum != 0? 'gtNumZero':''}}"></view>
+        <view class="peopleNum">{{childrenNum}}</view>
+        <view data-type="1" bindtap="toAddNum" class="toAddNum"></view>
+      </view>
+    </view>
+    <view class="itemTypeSelect" wx:if="{{childPrice != 0}}">
+      <view class="itemTypeDesc">
+        <view class="itemTypeText">
+          <view>婴儿</view>
+          <text>3周岁(不含)以下</text>
+        </view>
+        <view wx:if="{{selectDay}}" class="itemTypePrice">单价￥{{childPrice}}</view>
+      </view>
+      <view class="numSelect">
+        <view data-type="2" bindtap="toMinusNum" class="toMinusNum {{childNum != 0? 'gtNumZero':''}}"></view>
+        <view class="peopleNum">{{childNum}}</view>
+        <view data-type="2" bindtap="toAddNum" class="toAddNum"></view>
+      </view>
+    </view>
+    </view>
+  </view>
+  <!-- 底部显示 -->
+  <view class="productAllPrice">
+    <view class="showAllPrice">
+      <view class="allPriceNum">
+        <view>总额:￥ <text>{{priceTotal}}</text></view>
+        <text bindtap="showFeeBox">明细</text>
+      </view>
+      <view class="toContact">
+        <image src="../../images/contact.png"></image>
+        <text>咨询</text>
+        <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+      </view>
+    </view>
+    <view class="buyToNext" bindtap="jumpToNext"><text>下一步</text></view>
+  </view>
+  <!-- 返回参与拼团遮罩 -->
+  <view wx:if="{{isShowSelectShade}}" class="joinGroupShade"></view>
+
+  <template wx:if="{{isShowJoinBox}}" is="toJoinGroup" data="{{...itemGroupInfo}}" />
+  <template wx:if="{{isShowFeeBox}}" is="feeDetail" data="{{...feeObj}}" />
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>

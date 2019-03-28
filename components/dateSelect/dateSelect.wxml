@@ -1,0 +1,30 @@
+<!--components/dateSelect/dateSelect.wxml-->
+<view class="dateSelectView">
+  <!-- <view class="canlendarView"> -->
+    <view class="weekBgView">
+      <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+    </view>
+    <view class="canlendarTopView">
+      <view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+        <view class="leftView">《</view>
+      </view>
+      <view class="centerView">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+      <view class="rightBgView" bindtap="handleCalendar" data-handle="next">
+        <view class="rightView">》</view>
+      </view>
+    </view>
+    <view class="dateBgView">
+      <view style="width: {{averageW}}" wx:if="{{hasEmptyGrid}}" class="dateEmptyView" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+      </view>
+      <view style="width: {{averageW}}" class="dateView" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="dateSelectAction">
+        <view class="datesView {{!item.isBuy? 'noCanToSelect':''}} {{todayIndex == index? 'activeSelectDay': ''}}">
+          <text>{{item.day}}</text>
+          <text wx:if="{{item.isBuy}}" class="currentPrice">￥{{item.adultPrice}}</text>
+          <view wx:if="{{item.isBuy && item.isDiscount}}" class="showDiscountsImg"><image src="../../images/discounts_price.png"></image></view>
+        </view>
+      </view>
+    </view>
+  <!-- </view> -->
+</view>
+
+

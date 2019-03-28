@@ -1,0 +1,75 @@
+/* pages/myStore/myStore.wxss */
+.myStore {
+  padding-top: 80rpx;
+}
+.showMyHead {
+  width: 100%;
+  margin-bottom: 120rpx;
+  display: flex;
+  justify-content: center;
+}
+.showMyHead>view {
+  width: 206rpx;
+  height: 206rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 10rpx 56rpx 0 rgba(111,113,115,0.15);
+  border: 1px solid #eee;
+}
+.showMyHead>view image {
+  border-radius: 50%;
+}
+.moreContentEnter {
+  padding: 0 90rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.itemEnter {
+  width: 248rpx;
+  height: 248rpx;
+  background: #FFDA4C;
+  box-shadow: 0 10rpx 56rpx 0 rgba(111,113,115,0.15);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.itemEnter:first-child {
+  margin-bottom: 40rpx;
+}
+.itemEnter>view {
+  margin-bottom: 20rpx;
+}
+.itemEnter>text {
+  font-size: 30rpx;
+  color: #222222;
+}
+.myCenterEnter {
+  width: 80rpx;
+  height: 76rpx;
+}
+.myBillCenter {
+  width: 80rpx;
+  height: 80.4rpx;
+}
+.myWalletEnter {
+  width: 80rpx;
+  height: 80rpx;
+}
+.proCenterEnter {
+  width: 80rpx;
+  height: 88rpx;
+}
+
+.toJumpToMyClient {
+  position: fixed;
+  top: 30rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #222;
+  background: #FFDA4C;
+  padding: 6rpx 18rpx;
+  border-radius: 40rpx;
+}

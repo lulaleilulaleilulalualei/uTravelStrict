@@ -1,0 +1,33 @@
+<!--pages/checkingTicket/checkingTicket.wxml-->
+<view class="checkingTicket">
+  <view class="checkingTicketBox">
+    <view class="checkTypeBox">
+      <view class="checkTypeName">扫码验票</view>
+      <view class="toCheckTicket">
+        <view class="showScanCode" bindtap="toScanCode"><image src="../../images/scanCode.png"></image></view>
+      </view>
+    </view>
+    <view class="checkTypeBox">
+      <view class="checkTypeName">手机号码验票</view>
+      <view class="toCheckTicket">
+        <view class="phoneCheckInp">
+          <input type="number" value="{{userTel}}" placeholder='请输入手机号验证' bindblur="bindGetPhoneVal" bindconfirm="bindGetPhoneVal"></input>
+        </view>
+        <view class="phoneCheckBtn" bindtap="toInquireTicket">确定</view>
+
+        <view class="showMoreUserOrders" wx:if="{{moreOrders.length > 1}}">
+          <view class="itemUserOrders" wx:for="{{moreOrders}}" wx:key="{{index}}">
+            <view class="itemOrdersLeft">
+              <view class="ordersProName">{{item.title}}</view>
+              <view class="ordersProCreateTime" wx:if="{{item.isMeal != 1}}">使用日期：{{item.goTime}}</view>
+              <view class="ordersProCreateTime" wx:if="{{item.isMeal == 1}}">使用日期：{{item.startDate}} 至 {{item.endDate}}</view>
+              <!-- <view class="ordersProCreateTime">使用日期：2019-01-10 至 2019-01-20</view> -->
+              <view class="ordersProOrder">订单号：{{item.platTransNo}}</view>
+            </view>
+            <view class="itemOrdersRight" data-index="{{index}}" bindtap="toCheckTicket">去验票</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

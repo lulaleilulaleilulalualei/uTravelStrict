@@ -1,0 +1,28 @@
+<!--pages/groupList/groupList.wxml-->
+<import src="../common/noMore/noMore.wxml" />
+<import src="../common/noData/noData.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/toJoinGroup/toJoinGroup.wxml" />
+
+<view class="groupList">
+  <view class="groupListBox" wx:if="{{currentGroup.length != 0}}">
+    <view class="itemGroup" wx:for="{{currentGroup}}" wx:key="{{index}}">
+        <view class="groupUser">
+          <view><image src="{{item.avatar}}"></image></view>
+          <text>{{item.nickName}}</text>
+        </view>
+        <view class="toJoinGroup">
+          <view class="toJoinGroupText">
+            <view>还差{{item.oddApplyNum}}人拼成</view>
+          </view>
+          <view class="toJoinGroupBox" data-index="{{index}}" bindtap="toJoinGroup">去拼团</view>
+        </view> 
+      </view>
+
+    <template wx:if="{{isToBottom}}" is="noMore" />
+  </view>
+
+  <template wx:if="{{groupTotal == 0}}" is="noData" data="{{noDataText}}"/>
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+  <template wx:if="{{isShowJoinBox}}" is="toJoinGroup" data="{{...itemGroupInfo}}"/>
+</view>

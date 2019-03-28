@@ -1,0 +1,179 @@
+<!--pages/writeOrders/writeOrders.wxml-->
+<import src="../common/feeDetail/feeDetail.wxml" />
+<import src="../common/giftBox/giftBox.wxml" />
+
+<view class="writeOrders">
+  <view class="ordersTopText">
+    {{ordersObj.productName}}
+  </view>
+  <!--使用日期和人数  -->
+  <view class="ordersDate">
+    <view class="itemOrdersDate">
+      <image src="../../images/service_icon.png"></image>
+      <view wx:if="{{ordersObj.type != 1}}">使用日期：{{ordersObj.date}}</view>
+      <view wx:else>使用日期：{{ordersObj.startDate}} 至 {{ordersObj.endDate}}</view>
+    </view>
+    <view class="itemOrdersDate">
+      <image src="../../images/service_icon.png"></image>
+      <view wx:if="{{ordersObj.type != 1}}">
+        购买份数：成人x{{ordersObj.adultNum}} 
+        <text wx:if="{{ordersObj.childrenNum != 0}}">儿童x{{ordersObj.childrenNum}}</text>
+        <text wx:if="{{ordersObj.childNum != 0}}">婴儿x{{ordersObj.childNum}}</text>
+      </view>
+      <view wx:else>购买份数: {{ordersObj.adultNum}}份</view>
+    </view>
+  </view>
+  <!-- 出行人 -->
+  <view class="selectSomePeople" wx:if="{{ordersObj.type != 1}}">
+    <view class="showStillNum">
+      <text>出行人</text>
+      <view wx:if="{{needUsers != 0}}">还需选择{{needUsers}}个出行人(婴儿不纳入出行人名单)</view>
+    </view>
+    <view class="allPeopleList">
+      <view class="itemPeopleName {{item.isSelect? 'selectActive': ''}}" 
+            data-index="{{index}}"
+            wx:for="{{travelerList}}"
+            wx:key="{{item.id}}"
+            bindtap="selectUser">
+        <text>{{item.chName}}</text>
+        <view wx:if="{{item.isSelect}}"><image src="../../images/select_user.png"></image></view>
+      </view>
+      <view class="addPeopleNum" bindtap="toJumpAddTraveler">新增+</view>
+    </view>
+  </view>
+  <!-- 出行信息 -->
+  <view class="goOutInfo" wx:if="{{ordersObj.type != 1}}">
+    <view class="ordersItemTitle">出行信息</view>
+    <view class="orderCardInfo">
+      <view class="gatherSpot">
+        <text>集合点</text>
+        <view>{{ordersObj.destination}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 联系信息 -->
+  <view class="contactInfo">
+    <view class="ordersItemTitle">联系信息</view>
+    <view class="contactInfoCard">
+      <view class="contactInfoNotice">
+        <image src="../../images/notice_icon.png"></image>
+        <text>大陆手机和境外手机填写一个下单即可</text>
+      </view>
+      <view class="userRealName">
+        <text>姓名</text>
+        <input type="text" placeholder="请填写真实姓名" value="{{userRealname}}" placeholder-style="color: #999696;" bindblur="getUserRealname"></input>
+      </view>
+      <view class="cnPhoneNum">
+        <text>大陆手机</text>
+        <input placeholder="接收确认短信" value="{{cnPhoneNum}}" bindblur="bindCNPhone" placeholder-style="color: #999696;" type="number"></input>
+      </view>
+      <view class="foreignPhoneNum">
+        <text>境外手机</text>
+        <view class="foreignPhone">
+          <picker bindchange="bindCodeChange" value="{{codeIndex}}" range-key="code" range="{{foreignCode}}">
+            <view>{{codeIndex? '+' + foreignCode[codeIndex].code : '国家/区号'}}</view>
+          </picker>
+          <input placeholder="方便境外联络" bindblur="bindForeignPhone" placeholder-style="color: #999696;" type="number"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 使用优惠券 -->
+  <view class="userCoupon">
+    <view class="ordersItemTitle">使用优惠券</view>
+    <view class="orderCardInfo" bindtap="jumpToCouponList">
+      <view class="showCouponInfo">
+        <view class="showCouponInfoText">
+          <text>优惠券</text>
+          <view>{{couponText}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 发票信息 样式引用优惠券 -->
+  <!-- <view class="userCoupon">
+    <view class="ordersItemTitle">发票信息</view>
+    <view class="orderCardInfo" bindtap="jumpToInvoice">
+      <view class="showCouponInfo">
+        <view class="showCouponInfoText">
+          <text>发票</text>
+          <view>不需要发票</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 购买保险 -->
+  <view class="userCoupon" wx:if="{{policyArr.length != 0}}">
+    <view class="ordersItemTitle">购买保险</view>
+    <view class="orderCardInfo">
+      <view class="itemInsuInfo" wx:for="{{policyArr}}" wx:key="{{index}}">
+        <view class="insuPrice">{{item.proName}}/{{item.safeName}} <text>￥{{item.proPrice}}/</text>份</view>
+        <view class="selectInsu">
+          <text data-index="{{index}}" bindtap="toPolicyDetail">详情</text>
+          <view bindtap="bindSelectInsu" data-index="{{index}}" class="selectInsuBox {{item.isSelect? 'hadSelectInsu': ''}}">
+            <image wx:if="{{item.isSelect}}" src="../../images/protocol_icon.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 可选超值礼品 -->
+  <view class="userCoupon" wx:if="{{otherProArr.length != 0}}">
+    <view class="otherProTop">可选超值礼品</view>
+    <view class="othterProList">
+      <view class="itemTypeSelect" wx:for="{{otherProArr}}" wx:key="{{index}}">
+        <view class="itemTypeDesc">
+          <view class="itemTypeText">
+            <view>{{item.proName}}</view>
+          </view>
+          <view class="itemTypePrice"><text>单价￥{{item.proPrice}}</text>/份</view>
+        </view>
+        <view class="otherProRight">
+          <view class="looOtherProDetail" data-index="{{index}}" catchtap="showGiftDetail">详情</view>
+          <view class="numSelect">
+            <view bindtap="toMinusNum" data-index="{{index}}" class="toMinusNum {{item.buyNum != 0? 'gtNumZero':''}}"></view>
+            <view class="peopleNum">{{item.buyNum}}</view>
+            <view bindtap="toAddNum" data-index="{{index}}" class="toAddNum"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 一日游合同和退改规则 -->
+  <view class="ruleNotice">
+    <view class="ruleNoticeIcon {{!isAgreeRule? 'ruleSelectBox': ''}}" bindtap="bindAgreeRule">
+      <image wx:if="{{isAgreeRule}}" src="../../images/protocol_icon.png"></image>
+    </view>
+    <view class="ruleNoticeText">
+      <view>为支持绿色环保，我同意默认电子合同的有效性，无需再次签署纸质合同。点击去支付表示已阅读并同意
+      <text bindtap="jumpToQuitChange">《优旅家严选平台服务协议》</text>
+      <text bindtap="jumpToSuccurity">《旅游安全须知》</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部显示和支付 引用日期选择页-->
+  <view class="productAllPrice">
+    <view class="showAllPrice">
+      <view class="allPriceNum">
+        <view>总额:￥ <text>{{ordersObj.realPrice}}</text></view>
+        <text bindtap="showFeeBox">明细</text>
+      </view>
+      <view class="toContact">
+        <image src="../../images/contact.png"></image>
+        <text>咨询</text>
+        <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+      </view>
+    </view>
+    <view class="buyToNext">
+      <text bindtap="jumpToNext">{{isAccredit != 1? '去授权': '去支付'}}</text>
+      <button class="rejectAccredit" wx:if="{{isAccredit == 2}}" open-type="openSetting"></button>
+      <button class="rejectAccredit" wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting"></button>
+    </view>
+  </view>
+
+  <!-- 产品礼品详情 -->
+  <template wx:if="{{isShowGiftBox}}" is="giftBox" data="{{...giftDetailBox}}" />
+
+  <template wx:if="{{isShowFeeBox}}" is="feeDetail" data="{{...ordersObj}}" />
+</view>

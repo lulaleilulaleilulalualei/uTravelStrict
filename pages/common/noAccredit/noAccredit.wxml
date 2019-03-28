@@ -1,0 +1,7 @@
+<template name="noAccredit">
+  <view class="noAccredit">
+    <view class="noAccreditImg"><image src="../../images/noAccredit.png"></image></view>
+    <text>您的手机好像没有授权哦～</text>
+    <button class="accreditBtn">点击授权</button>
+  </view>
+</template>

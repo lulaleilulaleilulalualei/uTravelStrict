@@ -1,0 +1,39 @@
+<!--pages/discountCoupon/discountCoupon.wxml-->
+<import src="../common/noData/noData.wxml" />
+<import src="../common/noMore/noMore.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="couponBox">
+  <view class="couponBoxContent" wx:if="{{couponArr.length != 0}}">
+    <view class="itemCoupon {{item.isPastDue? 'pastDueCoupon': ''}}"
+        wx:for="{{couponArr}}"
+        wx:key="{{index}}"
+        bindtap="bindCoupon"
+        data-index="{{index}}">
+      <view class="canUseCouponNum">
+        <view wx:if="{{item.type == 0}}" class="showCouponNum">￥<text>{{item.price}}</text></view>
+        <view wx:if="{{item.type == 1}}" class="couponGiftImg"><image src="../../images/gift_icon.png"></image></view>
+        <text>满{{item.reachPrice}}元可用</text>
+      </view>
+      <view class="couponIntro">
+        <view class="couponIntroName">{{item.name}}</view>
+        <view class="couponIntroType">
+          <text>{{item.type == '0'? '消费减免券': '精美礼品券'}}</text>
+          <text>有效期至{{item.effectiveTime}}</text>
+        </view>
+        <view wx:if="{{item.isUse == 1}}" class="couponPastDue"><image src="../../images/hadUse.png"></image></view>
+        <view wx:if="{{item.isUse == 2}}" class="couponPastDue"><image src="../../images/pastDut.png"></image></view>
+      </view>
+      <view wx:if="{{item.isUse != 0}}" class="itemCoupoShade"></view>
+    </view>
+    <view class="nohadUserCoupon" wx:if="{{isShowNoUse}}" bindtap="toNoUseCoupon">
+      <view class="noUseIcon"><image src="../../images/noUse.png"></image></view>
+      <view class="nouseText"><text>不使用优惠券！</text></view>
+    </view>
+    
+    <template wx:if="{{isToBottom}}" is="noMore" />
+  </view>
+
+  <template wx:if="{{couponArr.length == 0}}" is="noData" data="{{noDataText}}" />
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>

@@ -1,0 +1,102 @@
+<!--pages/home/home.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+
+<view class="homeBox">
+  <text class="homeTitle">优质严选</text>
+  <view class="productListBox">
+    <view class="travelProduct" wx:for="{{productArr}}" wx:key="{{item.rtId}}" data-index="{{index}}"  bindtap="jumpToDetail">
+      <image src="{{item.thumb}}?x-oss-process=style/thumb585x675"></image>
+      <view class="productIntro">
+        <!-- <text class="productIntroNum"></text> -->
+        <wxs module="titleWrap" />
+        <text class="product01Intro" decode="{{true}}">{{titleWrap.titleDeal(item.title)}}</text>
+        <view class="toBuyProductBox">
+          <view class="showProPrice">￥<text>{{item.adultPrice}}</text></view>
+          <view class="toBuyProduct">马上抢Go</view>
+        </view>
+      </view>
+      <view class="showProTags" wx:if="{{item.type == 1}}">
+        <view class="itemProTags">{{item.tagList[0]}}</view>
+      </view>
+      <view class="showProTags" wx:if="{{item.type != 1}}">
+        <view class="itemProTags" wx:for="{{item.tagList}}" wx:for-item="tag" wx:for-index="tagInd" wx:key="{{tagInd}}">{{tag}}</view>
+      </view>
+    </view>
+  </view>
+
+  <text class="realyUserComment">真实用户评价</text>
+  <view class="showCommentBox" wx:if="{{commentArr.length != 0}}">
+      <swiper autoplay="true" interval="{{3000}}">
+        <block wx:for="{{commentArr}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class="itemCommentBox">
+              <view class="commentTopInfo">
+                <view class="commentUserInfo">
+                  <view class="commentUserInfoImg"><image wx:if="{{item.avatar}}" src="{{item.avatar}}"></image></view>
+                  <view class="commentUserInfoName">
+                    <text>{{item.nickName}}</text>
+                    <view class="commentLevel">
+                      <image wx:for="{{item.score}}" 
+                            wx:for-index="levelNum" 
+                            wx:key="levelNum" src="../../images/commet_level.png">
+                      </image>
+                    </view>
+                  </view>
+                </view>
+                <text>{{item.subTime}}</text>
+              </view>
+              <view class="commentDesc">{{item.content}}</view>
+              <view class="commentImgs">
+              <wxs module="imgArr" />
+                <block wx:for="{{imgArr.toImgArr(item.pictures)}}" wx:key="{{imgInd}}" wx:for-item="img" wx:for-index="imgInd">
+                  <view data-index="{{index}}" data-imgInd="{{imgInd}}" catchtap="previewImg">
+                    <image src="{{img}}?x-oss-process=style/thumb185x185" lazy-load="true"></image>
+                  </view>
+                </block>
+              </view>
+            </view> 
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+
+
+  <view class="joinColloctTop" wx:if="{{isShowJoinMiniTop}}" catchtap="toShowJoinColloct">
+    <view class="joinColloctTopBox">
+      <text>添加到我的小程序</text>
+      <text>发现精选优质旅行</text>
+    </view>
+  </view>
+  <view wx:if="{{isShowJoinMiniBox}}" class="joinMiniNoticeBox">
+    <view class="showNoticeImgBox">
+      <image src="../../images/joinMini.png"></image>
+    </view>
+    <view class="toCloseNoticeBox" catchtap="toCloseMiniBox">我知道啦!</view>
+  </view>
+
+  <surprise-box couponArr="{{couponArr}}"></surprise-box>
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>
+
+<wxs module="imgArr">
+  var toImgArr = function(str) {
+    if(str) {
+      return str.split(',').slice(0, 3)
+    }
+  }
+  module.exports = {
+    toImgArr: toImgArr
+  }
+</wxs>
+
+<wxs module="titleWrap">
+  var titleDeal = function(title) {
+    if(title) {
+      return title.replace(' ', '\n')
+    }
+  }
+  module.exports = {
+    titleDeal: titleDeal
+  }
+</wxs>

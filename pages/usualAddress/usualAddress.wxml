@@ -1,0 +1,31 @@
+<!--pages/usualAddress/usualAddress.wxml-->
+<view class="usualAddress">
+  <view class="usualAddressBox">
+    <view class="inputAddressInfo">
+      <view class="itemAddressInfo">
+        <text>收件人</text>
+        <input type="text" placeholder="请填写收件人" value="{{userName}}" bindblur="sendUserName" placeholder-style="color: #B0B0B0;"></input>
+        <view class="getWxAddress" wx:if="{{isDefaultAgree == 1}}" bindtap="getWxAddress">获取微信地址</view>
+        <button class="getWxAddress" wx:if="{{isDefaultAgree == 2}}" open-type="openSetting">获取授权</button>
+        <button class="getWxAddress" wx:if="{{isDefaultAgree == 3}}" bindtap="toOpenSetting">获取授权</button>
+      </view>
+      <view class="itemAddressInfo">
+        <text>联系电话</text>
+        <input type="text" placeholder="请填写手机号码" value="{{userPhone}}" bindblur="sendUserPhone" placeholder-style="color: #B0B0B0;"></input>
+      </view>
+      <view class="itemAddressInfo">
+        <text>所在地区</text>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="addressInfoShow {{!isSelectRegion? 'noSelectRegion': ''}}">
+            <text>{{region[0]}} {{region[1]}} {{region[2]}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="itemAddressInfo">
+        <text>详细地址</text>
+        <input type="text" placeholder="请填写详细地址" value="{{detailAddress}}" bindblur="sendDetailAddress" placeholder-style="color: #B0B0B0;"></input>
+      </view>
+    </view>
+  </view>
+  <view class="compeleAddress" bindtap="toCompeleAddress"><text>完成</text></view>
+</view>

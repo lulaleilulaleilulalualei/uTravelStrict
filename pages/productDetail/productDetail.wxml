@@ -1,0 +1,356 @@
+<!--pages/productDetail/productDetail.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/shareBtn/shareBtn.wxml" />
+
+<scroll-view scroll-y="{{isScroll}}"
+            style="height: {{boxHeight}}"
+            scroll-into-view="{{toView}}"
+            scroll-with-animation="true"
+            bindscroll="detailScroll">
+<view class="productDetail" wx:if="{{!isLoadErr}}">
+  <!-- 封面banner图 -->
+  <view class="detailBannerImg">
+    <wxs module="coverLoad" />
+    <!-- <image src="{{coverLoad.coverJoint(proObj.thumb, 'banner')}}"></image> -->
+    <block wx:if="{{!proObj.videoUrl}}">
+        <swiper
+        wx:if="{{photosImg.length != 1}}"
+        indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}"
+        >
+            <block wx:for="{{photosImg}}" wx:key="{{index}}">
+                <swiper-item>
+                <view class="itemBannerShow" data-index="{{index}}" catchtap="imgToPreview">
+                    <image src="{{coverLoad.coverJoint(item, 'banner')}}"  class="slide-image" />
+                </view>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view wx:if="{{photosImg.length == 1}}" class="itemBannerShow" data-index="{{0}}" catchtap="imgToPreview">
+           <image src="{{coverLoad.coverJoint(photosImg[0], 'banner')}}"  class="slide-image" />
+        </view>
+    </block>
+    <video id="myVideo" wx:if="{{proObj.videoUrl}}" loop="true" autoplay="true" src="{{proObj.videoUrl}}" controls></video>
+  </view>
+
+  <view class="detailContent">
+    <!-- 产品标题价格 -->
+    <view class="contentTitle">
+      <view class="productTitle">
+        {{proObj.subTitle}}
+        <text>{{proNumNotice}}</text>
+      </view>
+      <view class="productNumIntro">
+        <view class="productPrice">
+          <view class="realPrice">¥<text>{{proObj.adultPrice}}</text></view>
+          <view class="marketPrice" wx:if="{{marketPrice}}">{{marketPrice}}</view>
+        </view>
+        <!-- <text style="font-size: 24rpx;color: #717171;">2人起订</text> -->
+        <text style="font-size: 24rpx;color: #A0A0A0;">已售{{proObj.sellNum}}份</text>
+      </view>
+      <view class="productAdvantage">
+        <view class="itemAdvantage"><image src="../../images/service_icon.png"></image>{{proObj.typeName}}</view>
+        <view class="itemAdvantage" wx:if="{{proObj.type != 1}}"><image src="../../images/service_icon.png"></image>{{proObj.themeTypeName}}</view>
+        <view class="itemAdvantage" wx:if="{{proObj.type != 1}}"><image src="../../images/service_icon.png"></image>{{proObj.outTypeName}}</view>
+      </view>
+    </view>
+    <!-- 产品可预订日期选择 -->
+    <view class="toSelectDate" wx:if="{{proObj.type != 1}}">
+      <view class="toSelectDateContain" bindtap="toBuyProduct" >
+        <view class="toSelectDateBox">
+          <view><image src="../../images/reserve_icon.png"></image>可订日期</view>
+          <text>请提前开始预订</text>
+        </view>
+      </view>
+      
+      <view class="accreditBtn" wx:if="{{isAccredit != 1 && !isPastDate}}">
+        <button wx:if="{{isAccredit == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo"></button>
+        <button wx:if="{{isAccredit == 2}}" open-type="openSetting"></button>
+        <button wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting"></button>
+      </view>
+    </view>
+    <!-- 产品特色 -->
+    <view class="productFeature" wx:if="{{proObj.featureText}}">
+      <view class="productFeatureTitle">
+        <image src="../../images/prodoct_feature.png"></image>
+        <text>产品特色</text>
+        <image src="../../images/prodoct_feature.png"></image>
+      </view>
+      <view class="productFeatureIntro">
+        <wxs module="proFeature" />
+        <view wx:for="{{proFeature.proArr(proObj.featureText)}}" wx:key="{{index}}"><text>{{item}}</text></view>
+      </view>
+    </view>
+    <!-- 行程介绍,费用说明，使用说明，购买须知 -->
+    <view id="productIntro">
+      <view class="productIntro" style="position: {{navPostion}}">
+        <view class="itemCutBox {{item.isActive? 'activeBox': ''}}" 
+              wx:for="{{titleArr}}" 
+              wx:key="{{item.boxId}}"
+              data-index="{{index}}"
+              bindtap="toNavCut">
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 行程介绍 -->
+    <view id="lineIntro">
+      <view class="lineNotice" wx:if="{{proObj.summary}}">
+        <text class="lineNotice01">概要</text>
+        <text class="lineNotice02">{{proObj.summary}}</text>
+      </view>
+      <!-- <wxs module="coverLoad" /> -->
+      <!-- <view class="lineDetailsBanner" bindtap="detailsPreviewImg"><image src="{{coverLoad.coverJoint(proIntro.thumb, 'line')}}"></image></view> -->
+      <view class="productLineTitle">行程介绍</view>
+
+      <!-- <view class="lineModule" wx:for="{{proIntro.tripText}}" wx:key="{{index}}">
+        <view class="lineSmallIcon"><image src="{{item.type == 1? hotelIcon: item.type == 2? foodIcon: spotIcon}}"></image></view>
+        <view class="moduleContent">
+          <text class="moduleTitle">{{item.title}}</text>
+          <text class="moduleDesc">{{item.desc}}</text>
+          <view class="moduleSpotIntro" wx:if="{{item.imgs.length != 0}}">
+            <view class="moduleSpotImg">
+              <swiper indicator-dots="true" autoplay="true">
+                <block wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="imgInd" wx:key="{{imgInd}}">
+                  <swiper-item>
+                    <view class="routeImg" data-index="{{index}}" data-imgInd="{{imgInd}}" catchtap="previewImg">
+                      <image src="{{img}}?x-oss-process=style/thumb600x280" lazy-load="true" />
+                    </view>
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+            <view wx:if="{{item.name}}" class="moduleSpotTitle">{{item.name}}</view>
+            <text wx:if="{{item.content}}" class="moduleSpotDesc">{{item.content}}</text>
+          </view>
+        </view>
+      </view> -->
+      <view class="lineModule">
+        <rich-text wx:if="{{carRich}}" class="richTextShow" type="text" nodes="{{contentTxt}}"></rich-text>
+        <text decode="true" wx:else>由于您的微信版本过低 \n 无法正常阅读当前内容</text>
+      </view>
+      
+    </view>
+    <!-- 费用说明 -->
+    
+    <view id="costExplain">
+      <view class="productLineTitle">费用说明</view>
+      <!-- <view class="itemExplain" wx:for="{{proIntro.costText}}" wx:key="{{index}}">
+        <view class="itemExplainTitle">{{item.title}}</view>
+        <view class="itemExplainText" wx:for="{{item.items}}" wx:for-item="text" wx:for-index="textInd" wx:key="{{textInd}}">{{text}}</view>
+      </view> -->
+      <view class="itemExplain">
+        <rich-text wx:if="{{carRich}}" class="richTextShow" type="text" nodes="{{proObj.costDesc}}"></rich-text>
+        <text decode="true" wx:else>由于您的微信版本过低 \n 无法正常阅读当前内容</text>
+      </view>
+    </view>
+    <!-- 使用说明 -->
+    <view id="useExplain">
+      <view class="productLineTitle">使用说明</view>
+      <!-- <view class="itemExplain" wx:for="{{proIntro.useText}}" wx:key="{{index}}">
+        <view class="itemExplainTitle">{{item.title}}</view>
+        <view class="itemExplainText" wx:for="{{item.items}}" wx:for-item="text" wx:for-index="textInd" wx:key="{{textInd}}">{{text}}</view>
+      </view> -->
+      <view class="itemExplain">
+        <rich-text wx:if="{{carRich}}" class="richTextShow" type="text" nodes="{{proObj.useDesc}}"></rich-text>
+        <text decode="true" wx:else>由于您的微信版本过低 \n 无法正常阅读当前内容</text>
+      </view>
+    </view>
+    <!-- 购买须知 -->
+    <view id="buyNotice">
+      <view class="productLineTitle">购买须知</view>
+      <!-- <view class="itemExplain" wx:for="{{proIntro.purchaseText}}" wx:key="{{index}}">
+        <view class="itemExplainTitle">{{item.title}}</view>
+        <wxs module="serviceApply" />
+        <view class="itemExplainText" wx:for="{{item.items}}" wx:for-item="text" wx:for-index="textInd" wx:key="{{textInd}}">
+          <text wx:if="{{serviceApply.applyP(text).type === 0}}">{{text}}</text>
+          <text wx:else>该旅游产品由<text class="companySign">{{proIntro.company}}</text>提供</text>
+        </view>
+      </view> -->
+      <view class="itemExplain">
+        <rich-text wx:if="{{carRich}}" class="richTextShow" type="text" nodes="{{proObj.purchaseDesc}}"></rich-text>
+        <text decode="true" wx:else>由于您的微信版本过低 \n 无法正常阅读当前内容</text>
+      </view>
+    </view>
+
+    <view class="jumpToCommentBox" wx:if="{{commentObj.comments.length > 0}}">
+      <view class="showAverageScore">
+        <view class="averageScore">
+          <text>用户评价</text>
+          <view><text>{{commentObj.aveScore}}</text>分</view>
+        </view>
+        <view class="allCommentNum" bindtap="jumpToCommentList"><text>{{commentObj.totalCount}}条</text></view>
+      </view>
+
+      <view class="itemUserComment" wx:for="{{commentObj.comments}}" wx:key="{{index}}">
+        <view class="itemUserCommentBox">
+          <view class="itemUserCommentInfo">
+            <view class="itemUserComInfoBox">
+              <view class="itemUserComHeadImg"><image src="{{item.avatar}}"></image></view>
+              <view class="itemUserComName">
+                <text>{{item.nickName}}</text>
+                <view>
+                  <image wx:for="{{item.score}}" 
+                          wx:for-index="levelNum" 
+                          wx:key="levelNum" 
+                          src="../../images/commet_level.png"></image>
+                </view>
+              </view>
+            </view>
+            <text>{{item.subTime}}</text>
+          </view>
+          <view class="itemUserCommentText">{{item.content}}</view>
+          <wxs module="imgArr" />
+          <scroll-view scroll-x="true" wx:if="{{item.pictures != ''}}" class="itemUserCommentImgs">
+              <block wx:for="{{imgArr.toImgArr(item.pictures)}}" wx:key="{{imgInd}}" wx:for-item="img" wx:for-index="imgInd">
+                <view class="userCommentImgShow" data-index="{{index}}" data-imgInd="{{imgInd}}" catchtap="previewCommentImg">
+                    <image src="{{img}}?x-oss-process=style/thumb185x185" lazy-load="true"></image>
+                </view>
+              </block>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="contactAndBuy" wx:if="{{!isFromOrdersStage}}">
+    <view class="toConTact">
+      <view><image src="../../images/contact.png"></image></view>
+      <text>咨询</text>
+      <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+    </view>
+    <view class="makePoster" hover-class="none" hover-stop-propagation="false" bindtap="getPoster">
+        <view hover-class="none" hover-stop-propagation="false">
+            <image src="../../images/productCenter.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        </view>
+        <text class="" selectable="false" space="false" decode="false">生成海报</text>
+    </view>
+    <view class="bottomBtnBox">
+      <view class="toBuyProduct {{isPastDate? 'noBuyProduct': ''}}" bindtap="toBuyProduct"><text>立即抢Go</text></view>
+
+      <view class="accreditBtn" wx:if="{{isAccredit != 1 && !isPastDate}}">
+        <button wx:if="{{isAccredit == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo"></button>
+        <button wx:if="{{isAccredit == 2}}" open-type="openSetting"></button>
+        <button wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting"></button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 套餐购买份数 -->
+  <view class="productNum" wx:if="{{isBuyCombo}}" data-sign="1" catchtap="colseBuyProdutBox">
+    <view class="productNumBox" style="position: {{buyNumPosition}}">
+      <view class="productNumTitle">
+        <text>选择份数</text>
+      </view>
+      <view class="itemTypeSelect">
+        <view class="itemTypeDesc">
+          <view class="itemTypeText">
+            <view>份数</view>
+          </view>
+          <view class="itemTypePrice">单价￥{{proObj.adultPrice}}</view>
+        </view>
+        <view class="numSelect">
+          <view bindtap="toMinusNum" class="toMinusNum {{adultNum != 0? 'gtNumZero':''}}"></view>
+          <view class="peopleNum">{{adultNum}}</view>
+          <view bindtap="toAddNum" class="toAddNum"></view>
+        </view>
+      </view>
+      <view class="productAllPrice">
+        <view class="showAllPrice">
+          <view class="allPriceNum">
+            <view>总额:￥ <text>{{priceTotal}}</text></view>
+          </view>
+          <view class="toContact">
+            <image src="../../images/contact.png"></image>
+            <text>咨询</text>
+            <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+          </view>
+        </view>
+        <view class="buyToNext" bindtap="jumpToNext"><text>下一步</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="bottomBoxArea"></view>
+
+  <view class="noticeUserBg" wx:if="{{isSHowAccreditBox}}">
+    <view class="noticeUserBox">
+        <view class="noticeBoxTop">
+            <view class="noticeBoxTopImg" hover-class="none" hover-stop-propagation="false">
+                <image src="../../images/user_test_1.png"></image>
+            </view>
+            <view class="noticeBoxTopTxt" hover-class="none" hover-stop-propagation="false">
+                优旅家严选<text class="" selectable="false" space="false" decode="false">申请</text>
+            </view>
+        </view>
+        <view class="noticeBoxMiddle" hover-class="none" hover-stop-propagation="false">
+            {{(isAccredit == 2 || isAccredit == 3)? '重新获取您的微信授权信息': '获取您的微信授权信息'}}
+        </view>
+        <view class="noticeBoxBtn" hover-class="none" hover-stop-propagation="false">
+            <button wx:if="{{isAccredit == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">授权</button>
+            <button wx:if="{{isAccredit == 2}}" open-type="openSetting">授权</button>
+            <button wx:if="{{isAccredit == 3}}" bindtap="toOpenSetting">授权</button>
+        </view>
+    </view>
+  </view>
+
+  <view class="joinColloctTop" wx:if="{{isShowJoinMiniTop}}" catchtap="toShowJoinColloct">
+    <view class="joinColloctTopBox">
+      <text>添加到我的小程序</text>
+      <text>回到首页更多精彩</text>
+    </view>
+  </view>
+</view>
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+  <template wx:if="{{isShowHomeBtn}}" is="shareBtn" />
+</scroll-view>
+
+<wxs module="coverLoad">
+  var coverJoint = function(img, type) {
+    if(img && type == 'banner') {
+      return img + '?x-oss-process=style/thumb750x500'
+    }
+    if(img && type == 'line') {
+      return img + '!ys'
+    }
+  }
+  module.exports = {
+    coverJoint: coverJoint
+  }
+</wxs>
+
+<wxs module="proFeature">
+  var proArr = function(str) {
+    if(str) {
+      return str.split('<br/>')
+    }
+  }
+
+  module.exports = {
+    proArr: proArr
+  }
+</wxs>
+
+<wxs module="imgArr">
+  var toImgArr = function(str) {
+    if(str) {
+      return str.split(',')
+    }
+  }
+  module.exports = {
+    toImgArr: toImgArr
+  }
+</wxs>
+
+<wxs module="serviceApply">
+  var applyP = function(text, name) {
+    if(text.indexOf('?') != -1) {
+      return {type: 1}
+    }
+    return {type: 0}
+  }
+  module.exports = {
+    applyP: applyP
+  }
+</wxs>

@@ -1,0 +1,243 @@
+<!--pages/hadBuildGroup/hadBuildGroup.wxml-->
+<!-- <import src="../common/feeDetail/feeDetail.wxml" /> -->
+<import src="../common/travelerInfo/travelerInfo.wxml" />
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/giftBox/giftBox.wxml" />
+
+<view class="completeOrders">
+  <!-- 订单完成页顶部 -->
+  <view class="ordersPageTop">
+    <!-- <view class="haveBuildGroup" wx:if="{{type == 1}}">
+      <view class="orderStageBox">
+        <view class="ordersStage bothSidesComplete">
+          <view><image src="../../images/order_icon.png"></image></view>
+        </view>
+        <view class="ordersStage bothSidesComplete">
+          <view><image src="../../images/order_icon.png"></image></view>
+        </view>
+        <view class="ordersStage">
+          <view><image src="../../images/order_icon.png"></image></view>
+        </view>
+      </view>
+      <view class="orderStageText">
+        <text class="hadToStage">支付拼团</text>
+        <text class="hadToStage">邀请好友</text>
+        <text class="hadToStage">拼团成功</text>
+      </view>
+    </view> -->
+    <view class="hadBuildGroup">
+      <view class="hadCompleteTitle">
+        <view>{{type == 0? '未使用': type == 1? '已使用': type == 2? '已过期': '已退款'}}</view>
+        <text>{{type != 3? '交易成功，期待您的下次出行': '已退款成功，期待您的下次出行'}}</text>
+      </view>
+      <view class="toOrdersDetail" wx:if="{{type != 3}}">
+        <view>
+          ¥ <text>{{ordersObj.payFee}}</text>
+        </view>
+      </view>
+      <view class="toOrdersDetail" wx:if="{{type == 3}}">
+        <view>已退款</view>
+      </view>
+    </view>
+    <view class="productAfterSale">
+      <view class="itemProOperate">
+        <view><image src="../../images/contact.png"></image></view>
+        <text>咨询商家</text>
+        <button class="serviceBtn" open-type="contact" bindcontact="handleContact"></button>
+      </view>
+      <view class="itemProOperate">
+        <view><image src="../../images/comment_product.png"></image></view>
+        <text bindtap="bindToComment">{{toCommentTxt}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 展示二维码 -->
+  <view class="showCode" wx:if="{{type == 0}}">
+    <view class="showCodeImg">
+      <image src="data:image/png;base64,{{codeSrc}}"></image>
+      <view class="refreshCode" bindtap="refreshCode" wx:if="{{isNeedFresh}}"><image src="../../images/refresh.png"></image> <text>{{codeNoticeTxt}}</text></view>
+      <view class="checkTicketSuccess" wx:if="{{isCheckSuccess}}">
+        <image src="../../images/checkSuccess.png"></image>
+      </view>
+    </view>
+    <view wx:if="{{ordersObj.tellerTel}}" class="contactPhone">验票联系人电话</view>
+    <view class="toCallPhone">
+
+      <block wx:if="{{ordersObj.tellerTel.length != 0}}">
+        <!-- <view class="itemPeoplePhone"  
+            wx:for="{{ordersObj.tellerTel}}" 
+            wx:key="{{index}}">
+          <text>{{item.realName}}：</text><view data-index="{{phoneIndex}}" bindtap="toCallPhone">{{item.tel}}</view>
+        </view> -->
+        <picker mode="selector" 
+                bindchange="bindPickerChange" 
+                value="{{phoneIndex}}" 
+                range="{{phoneArray}}">获取验票人电话</picker>
+      </block>
+
+      <view wx:if="{{ordersObj.tellerTel.length == 0}}">暂无检票员联系方式</view>
+    </view>
+  </view>
+  <!-- 产品信息 -->
+  <view class="ordersProInfo">
+    <view class="ordersItemTitle">产品信息</view>
+    <view class="ordersSimleInfo">
+      <view class="ordersProTitle" bindtap="jumpToProDetail"><text>{{ordersObj.title}}</text></view>
+      <!-- <view class="itemOrdersShow">
+        <text>团编号：</text>
+        <view>{{ordersObj.num}}</view>
+      </view> -->
+      <view wx:if="{{ordersObj.isMeal != 1}}" class="itemOrdersShow">
+        <text>集合点：</text>
+        <view>{{ordersObj.assembly}}</view>
+      </view>
+      <view class="itemOrdersShow">
+        <block wx:if="{{ordersObj.isMeal != 1}}">
+          <text>出行日期：</text>
+          <view>{{goTime}}</view>
+        </block>
+        <block wx:else>
+          <text>使用日期：</text>
+          <view>{{ordersObj.startDate}} 至 {{ordersObj.endDate}}</view>
+        </block>
+      </view>
+      <block  wx:if="{{ordersObj.isMeal != 1}}">
+      <view class="itemOrdersShow">
+        <text>成人：</text>
+        <view>¥ {{ordersObj.adultPrice}}/人 x {{ordersObj.adultNum}}</view>
+      </view>
+      <view class="itemOrdersShow" wx:if="{{ordersObj.childNum != 0}}">
+        <text>儿童：</text>
+        <view>¥ {{ordersObj.childPrice}}/人 x {{ordersObj.childNum}}</view>
+      </view>
+      <view class="itemOrdersShow" wx:if="{{ordersObj.babyNum != 0}}">
+        <text>婴儿：</text>
+        <view>¥ {{ordersObj.babyPrice}}/人 x {{ordersObj.babyNum}}</view>
+      </view>
+      </block>
+      <view class="itemOrdersShow" wx:if="{{ordersObj.isMeal == 1}}">
+        <text>份数：</text>
+        <view>¥ {{ordersObj.adultPrice}}/份 x {{ordersObj.adultNum}}</view>
+      </view>
+      <view class="itemOrdersShow" wx:if="{{ordersObj.couponPrice}}">
+        <text>优惠券：</text>
+        <view>{{'-￥'+ordersObj.couponPrice}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 保险信息 -->
+  <view class="ordersProPeople" wx:if="{{policyObj}}">
+    <view class="ordersItemTitle"><view>保险信息</view></view>
+    <view class="ordersSimleInfo">
+      <view class="itemOrdersShow">
+        <text>{{policyObj.proName}}/{{policyObj.safeName}}：</text>
+        <view>¥ {{policyObj.proPrice}}/份</view>
+        <view class="toShowDetail" bindtap="toPolicyDetail">详情</view>
+      </view>
+    </view>
+  </view>
+  <!-- 礼品信息 -->
+  <wxs module="otherProObj" />
+  <view class="ordersProPeople" wx:if="{{otherProObj.arrDeal(otherGift).length != 0}}">
+    <view class="ordersItemTitle"><view>礼品信息</view></view>
+    <view class="ordersSimleInfo">
+      <view class="itemOrdersShow" wx:for="{{otherProObj.arrDeal(otherGift)}}" wx:key="{{index}}">
+        <text>{{item.proName}}：</text>
+        <view>¥ {{item.proPrice}}/份 x {{item.buyNum}}</view>
+        <view class="toShowDetail" data-index="{{index}}" catchtap="showGiftDetail">详情</view>
+      </view>
+    </view>
+  </view>
+  <!-- 出行人信息 -->
+  <view class="ordersProPeople" wx:if="{{ordersObj.isMeal != 1}}">
+    <view class="ordersItemTitle"><view>出行人信息({{ordersObj.adultNum + ordersObj.childNum}})</view> <text bindtap="bindShowTravelerBox">查看详情</text></view>
+    <view class="showFirstPeople">
+      <text>{{applyList[0].chName}} {{applyList[0].pyXing}} {{applyList[0].pyMing}}</text>
+    </view>
+  </view>
+  <!-- 预订人信息 -->
+  <view class="buyProPeopleInfo">
+    <view class="ordersItemTitle">预定人信息</view>
+    <view class="ordersSimleInfo">
+      <view class="itemOrdersShow">
+        <text>联系人：</text>
+        <view>{{ordersObj.realName}}</view>
+      </view>
+      <view class="itemOrdersShow">
+        <text>联系电话：</text>
+        <wxs module="phoneShow" />
+        <view>{{phoneShow.phoneDeal(ordersObj.tel, ordersObj.abroadTel)}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 订单信息 -->
+  <view class="ordersInfoBox">
+    <view class="ordersItemTitle">订单信息</view>
+    <view class="ordersSimleInfo">
+      <view class="itemOrdersShow">
+        <text>创建时间：</text>
+        <view>{{ordersObj.submitTime}}</view>
+      </view>
+      <view class="itemOrdersShow">
+        <text>订单编号：</text>
+        <view>{{ordersObj.platTransNo}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 发票信息 -->
+  <view class="ordersInvoiceInfo"  wx:if="{{type == 1}}">
+    <view class="ordersItemTitle">发票信息</view>
+    <view class="isHadGetInvoice">
+      <text>发票</text>
+      <view bindtap="jumpToInvoice"><text>暂不支持发票</text></view><!-- <text>索取发票</text> -->
+    </view>
+  </view>
+
+  <!-- 再次购买 -->
+  <view class="againBuyPro">
+    <view class="toReimburse" wx:if="{{type == 0}}" bindtap="toCancelOrders">取消订单</view>
+    <view class="toAgainBuy" bindtap="bindAgainToBuy">再次购买</view>
+  </view>
+
+  <template wx:if="{{isShowGiftBox}}" is="giftBox" data="{{...giftDetailBox}}" />
+  <!-- <template wx:if="{{isShowFeeBox}}" is="feeDetail" data="{{...feeObj}}" /> -->
+  <template wx:if="{{isShowTravelerBox}}" is="travelerInfo" data="{{userArr: applyList}}" />
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+</view>
+
+<wxs module="phoneShow">
+  var phoneDeal = function(cnPhone, foreignPhone) {
+    if(cnPhone && foreignPhone) {
+      return cnPhone + '/' + foreignPhone
+    }else if(cnPhone) {
+       return cnPhone
+    }else {
+      return foreignPhone
+    }
+  }
+  module.exports = {
+    phoneDeal: phoneDeal
+  }
+</wxs>
+
+<wxs module="otherProObj">
+  var arrObj = function(arr) {
+      var a = []
+      if(arr.length == 0) {
+        a = arr
+      }else {
+        arr.map(function(v, i) {
+          if(v) {
+            a.push(v)
+          }
+        })
+      }
+      
+      return a
+  }
+
+  module.exports = {
+    arrDeal: arrObj
+  }
+</wxs>

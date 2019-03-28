@@ -1,0 +1,454 @@
+/* pages/writeOrders/writeOrders.wxss */
+@import "../common/feeDetail/feeDetail.wxss"
+@import "../common/giftBox/giftBox.wxss"
+
+.writeOrders {
+  width: 100%;
+  min-height: 100%;
+  background: #F1F1F5;
+  padding-bottom: 120rpx;
+}
+.ordersTopText {
+  padding: 10rpx 30rpx;
+  font-size: 28rpx;
+  color: #222222;
+  line-height: 40rpx;
+}
+.ordersDate {
+  width: auto;
+  padding: 20rpx 30rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.ordersDate>view {
+  display: flex;
+  align-items: center;
+}
+.ordersDate>view:not(:last-child) {
+  padding-bottom: 20rpx;
+}
+.itemOrdersDate>image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+.itemOrdersDate>view {
+  font-size: 28rpx;
+  color: #222222;
+}
+
+.selectSomePeople, .goOutInfo, .contactInfo, .userCoupon {
+  width: auto;
+  height: auto;
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.showStillNum {
+  width: auto;
+  height: 64rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #EFEFEF;
+}
+.showStillNum>text {
+  font-size: 16px;
+  color: #222222;
+  display: block;
+  margin-right: 30rpx;
+}
+.showStillNum>view {
+  font-size: 12px;
+  color: #F7372C;
+}
+.allPeopleList {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx 20rpx 0;
+}
+.itemPeopleName {
+  position: relative;
+  width: 133rpx;
+  height: 68rpx;
+  padding: 0 10rpx;
+  border: 1px solid #999696;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #000000;
+}
+.itemPeopleName.selectActive {
+  border-color: #FFDA4C;
+}
+.itemPeopleName>text{
+ display: block;
+ width: 100%;
+ text-align: center;
+ overflow:hidden;
+ text-overflow:ellipsis;
+ white-space:nowrap;
+}
+.itemPeopleName>view {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 38rpx;
+}
+.addPeopleNum {
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  width: 153rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #000000;
+  margin-bottom: 20rpx;
+}
+.ordersItemTitle {
+  width: auto;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #EFEFEF;
+  font-size: 32rpx;
+  color: #222222;
+}
+.orderCardInfo {
+  width: auto;
+  height: auto;
+  padding: 30rpx 20rpx;
+}
+.gatherSpot {
+  width: auto;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000000;
+}
+.gatherSpot>text {
+  display: block;
+  margin-right: 80rpx;
+}
+
+.contactInfoCard {
+  padding: 0 20rpx 2rpx;
+}
+.contactInfoNotice {
+  width: auto;
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.contactInfoNotice>image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 20rpx;
+}
+.contactInfoNotice>text {
+  display: block;
+  font-size: 24rpx;
+  color: #F7372C;
+}
+.contactInfoCard input {
+  font-size: 28rpx;
+  color: #000000;
+}
+.cnPhoneNum, .userRealName {
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.cnPhoneNum>text, .foreignPhoneNum>text, .userRealName>text {
+  display: block;
+  width: 112rpx;
+  font-size: 28rpx;
+  color: #000000;
+  margin-right: 50rpx;
+}
+.cnPhoneNum>input, .userRealName>input {
+  flex: 1;
+  height: 40rpx;
+}
+.foreignPhoneNum {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.foreignPhone {
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+.foreignPhone view {
+  font-size: 14px;
+  color: #999696;
+  display: flex;
+  align-items: center;
+  margin-right: 40rpx;
+}
+.foreignPhone view::after {
+  content: '';
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  border: 2rpx solid #FFDA4C;
+  border-left:none;
+  border-top:none;
+  transform: rotate(45deg);
+  margin-left: 10rpx;
+}
+.foreignPhone>input {
+  flex: 1;
+  height: 40rpx;
+}
+.userEmail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.userEmail>input {
+  flex: 1;
+  height: 40rpx;
+}
+
+.showCouponInfo {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.showCouponInfo::after {
+  content: '';
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border: 3rpx solid #ccc;
+  border-left:none;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+.showCouponInfoText {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.showCouponInfoText>text {
+  font-size: 28rpx;
+  color: #000000;
+  display: block;
+  margin-right: 40rpx;
+}
+.showCouponInfoText>view {
+  flex:1;
+  font-size: 12px;
+  color: #000000;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.ruleNotice {
+  padding: 20rpx;
+  display: flex;
+}
+.ruleNoticeIcon {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  position: relative;
+  top: 6rpx;
+}
+.ruleNoticeIcon.ruleSelectBox {
+  width: 24rpx;
+  height: 24rpx;
+  border:2rpx solid #FFDA4C;
+  border-radius: 4rpx;
+}
+.ruleNoticeText {
+  flex: 1;
+}
+.ruleNoticeText>view {
+  font-size: 24rpx;
+  color: #000000;
+  line-height: 36rpx;
+}
+.ruleNoticeText>view>text {
+  color: #FFDA4C;
+}
+
+.itemInsuInfo {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemInsuInfo:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.insuPrice {
+  font-size:28rpx;
+  color:#000000;
+}
+.insuPrice>text {
+  display: inline-block;
+  font-size: 32rpx;
+  color: #F7372C;
+}
+
+.otherProTop {
+  width: auto;
+  height: 66rpx;
+  background: #FFDA4C;
+  line-height: 66rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+}
+.selectInsu {
+  display: flex;
+  align-items: center;
+}
+.selectInsu>text {
+  display: block;
+  font-size: 24rpx;
+  color: #FFDA4C;
+  margin-right: 30rpx;
+}
+.selectInsuBox {
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid #979797;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.hadSelectInsu {
+  border-color: transparent;
+  background: #FFDA4C;
+}
+
+.itemTypeSelect {
+  width: auto;
+  height: auto;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemTypeText {
+  display: flex;
+  align-items: center;
+}
+.itemTypeText>view {
+  font-size: 28rpx;
+  color: #222222;
+  margin-right: 10rpx;
+}
+.itemTypePrice {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #000000;
+}
+.itemTypePrice>text {
+  font-size: 24rpx;
+  color: #F7372C;
+}
+.otherProRight {
+  display: flex;
+  align-items: center;
+}
+.looOtherProDetail {
+  display: block;
+  font-size: 24rpx;
+  color: #FFDA4C;
+  margin-right: 30rpx;
+}
+.numSelect {
+  width: 206rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center
+}
+.numSelect>view {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toMinusNum {
+  border: 1px solid #CCCCCC;
+  border-top-left-radius: 8rpx;
+  border-bottom-left-radius: 8rpx;
+  border-right: none;
+}
+.toMinusNum::before {
+  content: '';
+  display: block;
+  width: 28rpx;
+  height: 4rpx;
+  background-color: #ccc;
+}
+.peopleNum {
+  border: 1px solid #FFDA4C;
+  font-size: 28rpx;
+  color: #000000;
+}
+.toAddNum {
+  border: 1px solid #FFDA4C;
+  border-left: none;
+  border-top-right-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  position: relative;
+}
+.toAddNum::before {
+  content: '';
+  display: block;
+  width: 28rpx;
+  height: 4rpx;
+  background-color: #FFDA4C;
+}
+.toAddNum::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top:50%;
+  left:50%;
+  width: 4rpx;
+  height: 28rpx;
+  margin-top: -14rpx;
+  margin-left: -2rpx;
+  background-color: #FFDA4C;
+}
+.toMinusNum.gtNumZero {
+  border-color: #FFDA4C;
+}
+.toMinusNum.gtNumZero::before {
+  background-color: #FFDA4C;
+}
+
+.rejectAccredit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}

@@ -1,0 +1,35 @@
+<!--pages/realName/realName.wxml-->
+<view class="realName">
+  <view class="itemInpInfo">
+    <text>姓名</text>
+    <input type="text" placeholder="请输入真实姓名" bindinput="getUserName" bindconfirm="getUserName"></input>
+  </view>
+  <view class="itemInpInfo">
+    <text>手机号</text>
+    <input type="number" placeholder="请输入手机号码" bindinput="getUserTel" bindconfirm="getUserTel"></input>
+    <view class="codeDefaultBtn {{isToGetCode? 'timeCode': ''}}" bindtap="bindToGetCode">{{getCodeText}}</view>
+  </view>
+  <view class="itemInpInfo">
+    <text>验证码</text>
+    <input type="number" placeholder="请输入验证码" bindinput="getUserCode" bindconfirm="getUserCode"></input>
+  </view>
+  <view class="itemInpInfo">
+    <text>身份证号</text>
+    <input type="idcard" placeholder="请输入身份证号" bindinput="getUserIdCard" bindconfirm="getUserIdCard"></input>
+  </view>
+  <view class="itemInpInfo">
+    <text>渠道商</text>
+    <picker class="stageDistributor" bindchange="bindPickerChange" value="{{sIndex}}" range="{{sArray}}">
+      <view class="{{isHadSelect? 'stagePicker': ''}}">{{sArray[sIndex]}}</view>
+    </picker>
+  </view>
+  <!-- <view class="itemInpInfo">
+    <text>城市定位</text>
+    <view class="addCity {{posObj.type == 1? 'posSuccess': ''}}">
+      <view bindtap="toPostionCity">{{posObj.txt}}</view>
+      <button wx-if="{{settingBtnStatus == 2}}" open-type="openSetting"></button>
+      <button wx-if="{{settingBtnStatus == 3}}" bindtap="toOpenSeting"></button>
+    </view>
+  </view> -->
+  <view class="toApplyBtn" bindtap="toApplyInfo"><text>提交</text></view>
+</view>

@@ -1,0 +1,373 @@
+/**app.wxss**/
+page {
+  background-color: #fff;
+  width: 100%;
+  font-family: '微软雅黑';
+  height: 100%;
+  box-sizing: border-box;
+  -webkit-user-select:none;
+  user-select:none;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+swiper {
+  width: 100%;
+  height:100%;
+}
+image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.productLineTitle {
+  font-size: 32rpx;
+  color: #222222;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.productLineTitle::before {
+  content:'';
+  display: block;
+  width: 10rpx;
+  height: 36rpx;
+  background: #FFDA4C;
+  margin-right: 20rpx;
+}
+
+/* 评论列表 */
+.itemUserComment {
+  width: auto;
+  height: auto;
+  padding: 30rpx 30rpx 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+.itemUserCommentBox {
+  width: auto;
+  height: auto;
+  border-bottom: 1px solid #EFEFEF;
+}
+.itemUserCommentInfo {
+  width: auto;
+  height: auto;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemUserCommentInfo>text {
+  font-size: 22rpx;
+  color: #A1A1A1;
+}
+.itemUserComInfoBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.itemUserComHeadImg {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.itemUserComName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.itemUserComName>text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #393939;
+  margin-bottom: 10rpx;
+}
+.itemUserComName>view {
+  display: flex;
+  align-items: center;
+}
+.itemUserComName>view>image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+}
+.itemUserCommentText {
+  font-size: 28rpx;
+  color: #393939;
+  margin-bottom: 30rpx;
+}
+.itemUserCommentImgs {
+  width: auto;
+  height: 188rpx;
+  margin-bottom: 30rpx;
+  white-space:nowrap;
+}
+.userCommentImgShow {
+  display: inline-block;
+  height: 188rpx;
+  width: 188rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.userCommentImgShow:not(:last-child) {
+  margin-right: 20rpx;
+} 
+
+/* 拼团列表 */
+.itemGroup {
+  width: atuo;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 0;
+}
+.itemGroup:not(:last-child) {
+  border-bottom: 1px solid #EFEFEF;
+}
+.groupUser{
+  display: flex;
+  align-items: center;
+}
+.groupUser>view {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  border: 1px solid #eee;
+}
+.groupUser>text {
+  font-size: 32rpx;
+  color: #222222;
+}
+.toJoinGroup {
+  display: flex;
+  align-items: center;
+}
+.toJoinGroupText {
+  margin-right: 40rpx;
+}
+.toJoinGroupText>view {
+  font-size: 26rpx;
+  color: #000000;
+}
+.toJoinGroupText>text {
+  display: block;
+  font-size: 22rpx;
+  color: #999696;
+}
+.toJoinGroupBox {
+  width: 136rpx;
+  height: 56rpx;
+  background: #F7372C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+/* 底部明细 */
+.productAllPrice {
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index: 80;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 1px solid #EAEAEA;
+}
+.buyToNext {
+  width: 200rpx;
+  height: 100%;
+  background: #FFDA4C;
+  position: relative;
+}
+.buyToNext>text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #222222;
+}
+.showAllPrice {
+  flex: 1;
+  height: auto;
+  padding: 10rpx 0 10rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.allPriceNum {
+  display: flex;
+  align-items: flex-end;
+}
+.allPriceNum>view {
+  font-size: 28rpx;
+  color: #F7372C;
+  margin-right: 10rpx;
+}
+.allPriceNum>view>text {
+  font-size: 36rpx;
+}
+.allPriceNum>text {
+  font-size: 28rpx;
+  color: #FFDA4C;
+}
+.toContact {
+  display: flex;
+  flex-direction: column;
+  padding: 0 36rpx;
+  border-left: 1px solid #DBDBDB;
+  background-color: #fff;
+  position: relative;
+}
+.toContact>image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.toContact>text {
+  font-size: 20rpx;
+  color: #4F4F4F;
+}
+
+/* 页面没有数据 */
+.noData {
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noData>view {
+  width: 224rpx;
+  height: 160rpx;
+  margin-bottom: 50rpx;
+}
+.noData>text {
+  font-size: 32rpx;
+  color: #939290;
+}
+/* 网络报错或加载进来报错 */
+.noInternet {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noInternet>.noInternetImg{
+  width: 258rpx;
+  height: 206rpx;
+  margin-bottom: 40rpx;
+}
+.noInternet>text {
+  display: block;
+  font-size: 32rpx;
+  color: #939290;
+  margin-bottom: 60rpx;
+}
+.noInternet>.noInternetToLoad {
+  font-size: 36rpx;
+  color: #353742;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+  padding: 8rpx 50rpx;
+  font-weight: 600;
+}
+/* 没有授权页面 */
+.noAccredit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noAccredit>.noAccreditImg {
+  width: 360rpx;
+  height: 160rpx;
+  margin-bottom: 44rpx;
+}
+.noAccredit>text {
+  display: block;
+  font-size: 32rpx;
+  color: #939290;
+  margin-bottom: 50rpx;
+}
+.noAccredit>.accreditBtn {
+  font-size: 36rpx;
+  color: #353742;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+  padding: 8rpx 50rpx;
+  font-weight: 600;
+}
+
+/* 分享按钮样式 */
+.shareBtnBox {
+  position: fixed;
+  right: 20rpx;
+  bottom: 150rpx;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.4);
+  padding:10rpx 20rpx;
+  border-radius: 8rpx;
+}
+.shareBtnBox>view {
+  width: 40rpx;
+  height: 40rpx;
+}
+.shareBtnBox>text {
+  display: block;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/* 客服按钮 */
+.serviceBtn {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+
+
+
+

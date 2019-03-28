@@ -1,0 +1,370 @@
+/* pages/hadBuildGroup/hadBuildGroup.wxss */
+@import "../common/feeDetail/feeDetail.wxss"
+@import "../common/travelerInfo/travelerInfo.wxss"
+@import "../common/giftBox/giftBox.wxss"
+
+.completeOrders {
+  width: 100%;
+  height: auto;
+  background: #F1F1F5;
+  padding-bottom: 120rpx;
+}
+
+.ordersPageTop {
+  width: auto;
+  height: auto;
+  background: #fff;
+}
+.haveBuildGroup {
+  width: auto;
+  height: 168rpx;
+  border-bottom: 2rpx solid #EFEFEF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.orderStageBox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+.ordersStage {
+  display: flex;
+  align-items: center;
+}
+.ordersStage>view {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+}
+.ordersStage:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 4rpx;
+  width: 192rpx;
+  background: #A2AFB5;
+}
+.ordersStage.bothSidesComplete::after {
+  background: #F7372C;
+}
+.orderStageText {
+  width: 502rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #A2AFB5;
+}
+.orderStageText>text:first-child {
+  position: relative;
+  left: -24rpx;
+}
+.orderStageText>text:nth-child(3) {
+  position: relative;
+  right: -24rpx;
+}
+.orderStageText .hadToStage {
+  color: #000000;
+}
+
+.hadBuildGroup {
+  width: auto;
+  height: auto;
+  padding: 20rpx 30rpx;
+  background: #FCF9E9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hadCompleteTitle {
+  display: flex;
+  flex-direction: column;
+}
+.hadCompleteTitle>view {
+  font-size: 40rpx;
+  color: #000000;
+  font-weight: 600;
+}
+.hadCompleteTitle>text {
+  font-size: 24rpx;
+  color: #979693; 
+}
+.toOrdersDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.toOrdersDetail>view {
+  font-size: 14px;
+  color: #F7372C;
+}
+.toOrdersDetail>view>text {
+  font-size: 40rpx;
+}
+.toOrdersDetail>text {
+  font-size: 24rpx;
+  color: #FFDA4C;
+}
+
+.productAfterSale {
+  width: auto;
+  height: auto;
+  padding: 22rpx 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemProOperate {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.itemProOperate>view {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.itemProOperate>text {
+  font-size: 32rpx;
+  color: #000000;
+}
+
+.ordersProInfo, .ordersProPeople, .buyProPeopleInfo, .ordersInfoBox, .ordersInvoiceInfo{
+  width: auto;
+  height: auto;
+  margin:20rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+
+.ordersItemTitle {
+  width: auto;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #EFEFEF;
+  font-size: 32rpx;
+  color: #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ordersItemTitle>text {
+  font-size: 28rpx;
+  color: #FFDA4C; 
+}
+
+.ordersSimleInfo {
+  width: auto;
+  height: auto;
+  padding: 30rpx 20rpx 10rpx;
+}
+.ordersProTitle {
+  font-size: 14px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.ordersProTitle>text {
+  display: block;
+  flex: 1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.ordersProTitle::after {
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border:3rpx solid #ccc;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-left: 40rpx;
+}
+.itemOrdersShow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.itemOrdersShow>text {
+  display: block;
+  font-size: 28rpx;
+  color: #000000;
+  width: 140rpx;
+  margin-right: 60rpx;
+}
+.itemOrdersShow>view {
+  font-size: 28rpx;
+  color: #999696;
+}
+.itemOrdersShow .toShowDetail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size:28rpx;
+  color:#FFDA4C;
+}
+
+.showFirstPeople {
+  width: auto;
+  height: auto;
+  padding: 30rpx 20rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+
+.isHadGetInvoice {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000000;
+  padding: 30rpx 20rpx;
+}
+.isHadGetInvoice>text {
+  display: block;
+  width: 140rpx;
+  height:  auto;
+  margin-right: 60rpx;
+}
+.isHadGetInvoice>view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.isHadGetInvoice>view::after {
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border: 3rpx solid #ccc;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.againBuyPro {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #EAEAEA;
+}
+
+.againBuyPro>.toReimburse{
+  border: 1px solid #7F7F7F;
+  border-radius: 8rpx;
+  padding: 6rpx 20rpx;
+  font-size: 28rpx;
+  color: #999696;
+  margin-right: 20rpx;
+}
+.againBuyPro>.toAgainBuy {
+  border-radius: 8rpx;
+  padding: 6rpx 20rpx;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  background: #FFDA4C;
+  color: #222;
+}
+
+.showCode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  margin:20rpx;
+  padding: 30rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+.showCodeImg {
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.contactPhone {
+  font-size: 28rpx;
+  color: #000000;
+  margin-bottom: 10rpx;
+}
+.toCallPhone {
+  border-radius:8rpx;
+  padding:6rpx 20rpx;
+  font-size:28rpx;
+  background:#FFDA4C;
+  color:#222;
+}
+.itemPeoplePhone {
+  display: flex;
+  align-items: center;
+}
+.itemPeoplePhone:not(:last-child) {
+  margin-bottom: 10rpx;
+}
+.itemPeoplePhone>text {
+  display: block;
+  width: 115rpx;
+}
+.itemPeoplePhone> view {
+  color: #0099FF;
+}
+
+.refreshCode {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FCF9E9;
+}
+.refreshCode>image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 20rpx;
+}
+.refreshCode>text {
+  font-size: 24rpx;
+  color: #000;
+}
+
+.checkTicketSuccess {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+}
+.checkTicketSuccess >image {
+  width: 220rpx;
+  height: 220rpx;
+}

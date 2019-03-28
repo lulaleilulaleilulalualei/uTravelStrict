@@ -1,0 +1,87 @@
+/* pages/addTraveler/addTraveler.wxss */
+.travelerList {
+  width: auto;
+  height: 100%;
+  background: #F1F1F5;
+}
+.travelerListBox {
+  width: auto;
+  height: auto;
+  padding-top: 10rpx;
+}
+
+.travelerBtn {
+  background: #FFFFFF;
+  border-radius: 4rpx;
+  width: auto;
+  height: 84rpx;
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.travelerBtn>view {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.travelerBtn>text {
+  font-size: 32rpx;
+  color: #FFDA4C;
+}
+
+.itemTravelerInfo {
+  width: 710rpx;
+  height: auto;
+  margin: 20rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+  position: relative;
+}
+.travelerInfoBox {
+  position: relative;
+  z-index: 10;
+  width: auto;
+  height: auto;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+.travelerInfoName {
+  font-size: 32rpx;
+  color: #222222;
+  margin-bottom: 4rpx;
+}
+.travelerInfoSex {
+  display: block;
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 4rpx;
+}
+.travelerInfoDate {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+}
+.toEditInfo {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.travelerInfoDelete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 120rpx;
+  height: 160rpx;
+  font-size:32rpx;
+  background-color: #F7372C;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

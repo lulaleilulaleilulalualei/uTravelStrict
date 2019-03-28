@@ -1,0 +1,189 @@
+/* pages/buyProduct/buyProduct.wxss */
+@import "../common/toJoinGroup/toJoinGroup.wxss"
+@import "../common/feeDetail/feeDetail.wxss"
+
+.buyProduct {
+  background: #F1F1F5;
+}
+
+.productNum {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 560rpx;
+  padding-bottom: 100rpx;
+  background-color: #fff;
+  position: relative;
+}
+.productNumBox {
+  position: absolute;
+  bottom:0;
+  left:0;
+  z-index: 50;
+  width: 100%;
+  height: 560rpx;
+  padding-bottom: 100rpx;
+  background-color: #fff;
+}
+.productNumTitle {
+  width: auto;
+  padding: 30rpx;
+  border-bottom: 1px solid #EFEFEF;
+  font-size: 32rpx;
+  color: #222222;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-end;
+}
+.productNumTitle>text {
+  display: block;
+}
+.productNumTitle>.buyProNotice {
+  font-size: 24rpx;
+  color: #F7372C;
+  margin-left: 20rpx;
+}
+.itemTypeSelect {
+  width: auto;
+  height: auto;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemTypeSelect:not(:last-child) {
+  border-bottom: 1px solid #EFEFEF;
+}
+.itemTypeText {
+  display: flex;
+  align-items: center;
+}
+.itemTypeText>view {
+  font-size: 32rpx;
+  color: #222222;
+  margin-right: 10rpx;
+}
+.itemTypeText>text {
+  font-size: 28rpx;
+  color: #999696;
+}
+.itemTypePrice {
+  font-size: 28rpx;
+  color: #F7372C;
+}
+
+.numSelect {
+  width: 206rpx;
+  height: 64rpx;
+  display: flex;
+}
+.numSelect>view {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toMinusNum {
+  border: 1px solid #CCCCCC;
+  border-top-left-radius: 8rpx;
+  border-bottom-left-radius: 8rpx;
+  border-right: none;
+}
+.toMinusNum::before {
+  content: '';
+  display: block;
+  width: 28rpx;
+  height: 4rpx;
+  background-color: #ccc;
+}
+.peopleNum {
+  border: 1px solid #FFDA4C;
+  font-size: 28rpx;
+  color: #000000;
+}
+.toAddNum {
+  border: 1px solid #FFDA4C;
+  border-left: none;
+  border-top-right-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  position: relative;
+}
+.toAddNum::before {
+  content: '';
+  display: block;
+  width: 28rpx;
+  height: 4rpx;
+  background-color: #FFDA4C;
+}
+.toAddNum::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top:50%;
+  left:50%;
+  width: 4rpx;
+  height: 28rpx;
+  margin-top: -14rpx;
+  margin-left: -2rpx;
+  background-color: #FFDA4C;
+}
+.toMinusNum.gtNumZero {
+  border-color: #FFDA4C;
+}
+.toMinusNum.gtNumZero::before {
+  background-color: #FFDA4C;
+}
+
+.newDayGroup {
+  margin-top: 20rpx;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+.allGroup {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #EFEFEF;
+}
+.showAllGroupNum {
+  flex: 1;
+  font-size: 32rpx;
+  color: #222222;
+  font-weight: 600;
+}
+.toGroupList {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #999696;
+  display: flex;
+  align-items: center;
+}
+.toGroupList::after {
+  content: '';
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border: 3rpx solid #ccc;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-left: 16rpx;
+}
+.partGroup {
+  width: auto;
+  height: auto;
+  padding: 0 30rpx;
+}
+
+.joinGroupShade {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: rgba(0,0,0,0.7);
+}
+

@@ -1,0 +1,5 @@
+<template name="noMore">
+  <view class="noMoreData">
+    <text>已经到底了哦~</text>
+  </view>
+</template>

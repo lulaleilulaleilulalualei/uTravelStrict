@@ -1,0 +1,136 @@
+/* pages/myClient/myClient.wxss */
+@import "../common/noMore/noMore.wxss"
+
+.myClient {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topMyInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.mineHead {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border-bottom: 1px solid #efefef;
+  margin-right: 30rpx;
+}
+
+.mineName {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+.mineClientNum {
+  font-size: 28rpx;
+  color: #222;
+}
+
+.myClientList {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+.myClientListScroll {
+  width: 100%;
+  height: 100%;
+}
+.itemClient {
+  width: auto;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemClientLeft {
+  display: flex;
+  align-items: center;
+}
+.itemClientHead {
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+  margin-right: 30rpx;
+}
+.itemClientHeadImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #efefef;
+  overflow: hidden;
+}
+.itemClientNickName {
+  font-size: 28rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.itemClientPhone {
+  font-size: 24rpx;
+  color: #222;
+  margin-bottom: 10rpx;
+}
+.itemClientPhone text {
+  text-decoration: underline;
+}
+.itemClientBottomInfo {
+  font-size: 22rpx;
+  color: #A0ABB1;
+}
+
+.itemClientRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemClientRight::after {
+  content: '';
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border: 1px solid #aaa;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg);
+  margin-left: 20rpx;
+}
+.itemClientRight>view {
+  font-size: 30rpx;
+  color: #000;
+}
+
+.itemClientHeadSex {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.noDataShow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noDataShow>view {
+  width: 224rpx;
+  height: 160rpx;
+  margin-bottom: 50rpx;
+}
+.noDataShow>text {
+  font-size: 32rpx;
+  color: #939290;
+}

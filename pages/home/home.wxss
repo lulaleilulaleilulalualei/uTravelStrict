@@ -1,0 +1,258 @@
+/* pages/home/home.wxss */
+.homeBox {
+  padding: 60rpx 50rpx 120rpx;
+}
+.homeTitle {
+  display: block;
+  font-size: 64rpx;
+  color: #000000;
+  font-weight: 500;
+  margin-bottom: 60rpx;
+}
+.productListBox {
+  width: auto;
+  min-height: 744rpx;
+}
+.travelProduct {
+  width: atuo;
+  height: 744rpx;
+  min-height: 744rpx;
+  border-radius: 40rpx;
+  position: relative;
+  margin-bottom: 60rpx;
+  overflow: hidden;
+  background: #eee;
+}
+.travelProduct>image {
+  width: 100%;
+  height: 100%;
+}
+.productIntro {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 1;
+  width: 550rpx;
+  height: 644rpx;
+  padding: 60rpx 50rpx 40rpx;
+}
+.productIntro>text {
+  display: block;
+}
+.productIntroNum {
+  font-size: 28rpx;
+  color: #D3D3D3;
+  margin-bottom: 30rpx;
+}
+.product01Intro {
+  font-size: 46rpx;
+  color: #FFFFFF;
+  line-height: 76rpx;
+  font-weight: bold;
+  margin-top: 50rpx;
+}
+.toBuyProductBox {
+  position: absolute;
+  bottom: 40rpx;
+  right: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.showProPrice {
+  font-size: 26rpx;
+  color: #FFDA4C;
+  margin-bottom: 10rpx;
+  padding-right: 24rpx;
+}
+.showProPrice>text {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.toBuyProduct {
+  padding: 0 24rpx;
+  height: 72rpx;
+  background-color: #FFDA4C;
+  border-radius: 36rpx;
+  line-height: 72rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #353742;
+  font-weight: 600;
+}
+.realyUserComment {
+  font-size: 64rpx;
+  color: #000000;
+  display: block;
+  margin-top: 120rpx;
+  margin-bottom: 60rpx;
+  font-weight: 500;
+}
+.showCommentBox {
+  width: auto;
+  height: 560rpx;
+  background: #F2F7F9;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+.itemCommentBox {
+  width: auto;
+  height: auto;
+  padding: 50rpx 30rpx;
+}
+.commentTopInfo {
+  width: auto;
+  height: 96rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.commentTopInfo>text {
+  display: block;
+  font-size: 24rpx;
+  color: #A4ADB3;
+}
+.commentUserInfo {
+  display: flex;
+  align-content: center;
+}
+.commentUserInfoImg {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  border: 1px solid #eee;
+}
+.commentUserInfoName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.commentUserInfoName>text {
+  display: block;
+  font-size: 32rpx;
+  color: #393939;
+  margin-bottom: 10rpx;
+  max-width: 300rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.commentLevel {
+  display: flex;
+}
+.commentLevel>image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+}
+.commentDesc {
+  width: auto;
+  height: 120rpx;
+  font-size: 28rpx;
+  color: #393939;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 30rpx;
+}
+.commentImgs {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.commentImgs>view {
+  width: 184rpx;
+  height: 184rpx;
+  background: #E2DDDD;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.commentImgs>view:not(:last-child) {
+  margin-right: 18rpx;
+}
+
+.showProTags {
+  position: absolute;
+  top: 40rpx;
+  left: 50rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.itemProTags {
+  padding: 8rpx 20rpx;
+  background: #FFDA4C;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #000000;
+}
+.itemProTags:not(:last-child) {
+  margin-right: 20rpx;
+}
+
+
+.joinColloctTop {
+  position: fixed;
+  top:20rpx;
+  right: 20rpx;
+  z-index: 1001;
+  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  background: #FFDA4C;
+  box-shadow: 0 0 30rpx 0 #FFDA4C;
+}
+.joinColloctTop::before {
+  content:'';
+  display: block;
+  position: absolute;
+  top: -8rpx;
+  left: 50%;
+  margin-left: -8rpx;
+  width: 16rpx;
+  height: 16rpx;
+  transform: rotate(45deg);
+  background: #FFDA4C;
+}
+.joinColloctTopBox>text {
+  display: block;
+  color: #000;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+
+.joinMiniNoticeBox {
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 1002;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+.showNoticeImgBox {
+  width: 620rpx;
+  height: 720rpx;
+  margin-left: 84rpx;
+  margin-top: 40rpx;
+}
+
+.toCloseNoticeBox {
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  margin-left: -140rpx;
+  width: 280rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 35rpx;
+  border: 1px solid #fff;
+}

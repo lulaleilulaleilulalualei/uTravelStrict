@@ -1,0 +1,83 @@
+/* pages/myCenter/myCenter.wxss */
+.myCenter {
+  padding: 30rpx 40rpx;
+}
+.showMyHead {
+  width: auto;
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #EFEFEF;
+}
+.showMyHead>view {
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  background: #D8D8D8;
+}
+
+.itemInfoShow {
+  width: auto;
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.itemInfoShow>view {
+  font-size: 28rpx;
+  color: #222222; 
+}
+.itemInfoShow>text {
+  font-size: 28rpx;
+  color: #929292;
+}
+.toStartCheck {
+  padding: 30rpx 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+.toStartCheck>text {
+  font-size: 28rpx;
+  color: #222222;
+}
+.toStartCheck>view {
+  font-size: 28rpx;
+  color: #929292;
+  display: flex;
+  align-items: center;
+}
+
+.toStartCheck>.noCheck::after {
+  content: '';
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  border: 4rpx solid #929292;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-left: 20rpx;
+}
+.checkReject {
+  width: auto;
+  padding-top: 30rpx;
+}
+.checkReject>text {
+  display: block;
+  font-size:28rpx;
+  color:#222222;
+  margin-bottom: 10rpx;
+}
+.authRejectDue {
+  width: auto;
+  font-size: 28rpx;
+  color: #222;
+}
+.authRejectDue>text {
+  color: #F7372C;
+}

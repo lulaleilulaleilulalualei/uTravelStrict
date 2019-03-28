@@ -1,0 +1,35 @@
+<!--pages/writeTravelerInfo/writeTravelerInfo.wxml-->
+<view class="writeInfoPage">
+  <view class="writeInfoPageBox">
+    <view class="writeInfoTitle">{{funcTitle}}</view>
+    <view class="writeInfoBox">
+      <text class="writeInfoNeedName">中文姓名</text>
+      <input type="text" placeholder='需与证件信息一致' value="{{cnName}}" bindblur="getCHName" bindconfirm="getCHName" placeholder-style='color: #999696;'></input>
+    </view>
+    <view class="writeInfoBox">
+      <text class="writeInfoNeedName">姓(拼音)</text>
+      <input type="text" placeholder='需与证件信息一致，如：Zhang 首字母需大些' value="{{surname}}" bindblur="getSurname" bindconfirm="getSurname" placeholder-style='color: #999696;'></input>
+    </view>
+    <view class="writeInfoBox">
+      <text class="writeInfoNeedName">名(拼音)</text>
+      <input type="text" placeholder='需与证件信息一致，如：Xiaoming 首字母需大些' value="{{name}}" bindblur="getName"  placeholder-style='color: #999696;' bindconfirm="getName"></input>
+    </view>
+    <view class="writeInfoBox">
+      <text class="writeInfoNeedName">身份证号码</text>
+      <input type="idcard" placeholder='需与证件信息一致' value="{{idCard}}" bindblur="getIdcard" bindconfirm="getIdcard" placeholder-style='color: #999696;'></input>
+    </view>
+    <view class="selectInfoBox">
+      <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexArray}}">
+        <view class="selectInfoBoxInside">
+          <view>
+            <text>性别</text>
+            <view>{{sexArray[sexIndex]}}</view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="compeleteInfo" bindtap="toCompelete">
+      <text>完成</text>
+    </view>
+  </view>
+</view>

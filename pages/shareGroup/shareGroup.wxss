@@ -1,0 +1,182 @@
+/* pages/shareGroup/shareGroup.wxss */
+
+
+.lookProductDetailBox {
+  width: 100%;
+  height: auto;
+  background:#F1F1F5;
+  padding-bottom: 20rpx;
+}
+.lookProductDetail {
+  padding: 0 40rpx;
+  background: #fff;
+}
+.showProductInfo {
+  width: atuo;
+  height: auto;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #EFEFEF;
+  display: flex;
+  align-items: center;
+}
+.showProductImg {
+  height: 244rpx;
+  width: 244rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+}
+.showProductText {
+  flex: 1;
+  height: 244rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productTitle {
+  font-size: 32rpx;
+  color: #384146;
+  font-weight: 600;
+}
+.toLookProductDetail {
+  font-size: 24rpx;
+  color: #A2AFB5;
+}
+.productPrice {
+  font-size: 56rpx;
+  color: #F7372C;
+}
+
+.lookGroupInfo {
+  padding: 50rpx 40rpx 0;
+}
+.showAllGroupHead {
+  width: auto;
+  height: 120rpx;
+  white-space: nowrap;
+  margin-bottom: 40rpx;
+}
+.itemUserHead {
+  height: auto;
+  width: 100rpx;
+  position: relative;
+  display: inline-block;
+}
+.itemUserHead:not(:last-child) {
+  margin-right: 46rpx;
+}
+.itemUserHead>view {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.itemUserHead>.groupOrganizer {
+  position: absolute;
+  bottom: -18rpx;
+  left: 0;
+  width: 96rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background: #FFDA4C;
+  border-radius: 18rpx;
+  font-size: 24rpx;
+  color: #000000;
+  text-align: center;
+}
+.itemUserHead>.toBuyNum {
+  position: absolute;
+  top: 0;
+  right: -4rpx;
+  background:#F7372C;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 20rpx;
+}
+
+.stillNeedNum {
+  width: auto;
+  text-align: center;
+  font-size: 36rpx;
+  color: #40484D;
+  font-weight: 600;
+  margin-bottom: 40rpx;
+}
+.stillNeedNum>text {
+  color: #F7372C;
+}
+
+.remainTime {
+  width:auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.remainTime>text {
+  font-size: 32rpx;
+  color: #A3B1B7;
+}
+.remainTime>view {
+  height: 80rpx;
+  width: auto;
+  padding: 0 10rpx;
+  background: #40484D;
+  border-radius: 16rpx;
+  margin: 0 20rpx;
+  font-size: 50rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.joinGroupBox {
+  width: 670rpx;
+  height: 96rpx;
+  margin: 0 auto;
+  position: relative;
+  background: #F7372C;
+  border-radius: 48rpx;
+  margin-bottom: 40rpx;
+}
+.joinGroupBoxText {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+.joinGroupNotice {
+  width: 670rpx;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  border-top: 1px solid #EFEFEF;
+}
+.joinGroupNotice>view {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #373A3E;
+}
+
+.accreditBtn {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+.accreditBtn>button {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}

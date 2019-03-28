@@ -1,0 +1,211 @@
+/* pages/managerPage/managerPage.wxss */
+.managerPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #FFDA4C;
+}
+.toTypeCut {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding-top: 40rpx;
+}
+.itemManageType {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #000000;
+}
+.itemManageType>text {
+  display: block;
+  padding-bottom: 10rpx;
+  border-bottom: 4rpx solid transparent; 
+}
+.itemManageType.showCurrentType>text {
+  color: #fff;
+  border-bottom-color: #fff
+}
+.manageerArea {
+  flex: 1;
+  background: #F1F1F5;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.addTraveler {
+  width: auto;
+  height: 100%;
+}
+.travelerBtn {
+  background: #FFFFFF;
+  border-radius: 4rpx;
+  width: auto;
+  height: 84rpx;
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.travelerBtn>view {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.travelerBtn>text {
+  font-size: 32rpx;
+  color: #FFDA4C;
+}
+.itemTravelerInfo {
+  width: 710rpx;
+  height: auto;
+  margin: 20rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+  position: relative;
+}
+.travelerInfoBox {
+  position: relative;
+  z-index: 10;
+  width: auto;
+  height: auto;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+.travelerInfoName {
+  font-size: 32rpx;
+  color: #222222;
+  margin-bottom: 4rpx;
+}
+.travelerInfoSex {
+  display: block;
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 4rpx;
+}
+.travelerInfoDate {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+}
+.toEditInfo {
+  width: 40rpx;
+  height: 40rpx;
+}
+.travelerInfoDelete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 120rpx;
+  height: 160rpx;
+  font-size:32rpx;
+  background-color: #F7372C;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usualAddress {
+  width: auto;
+  height: auto;
+  padding: 0 20rpx;
+}
+.usualAddressBox {
+  width: auto;
+  height: auto;
+  padding-top: 30rpx;
+}
+.inputAddressInfo {
+  width: auto;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+  padding: 0 20rpx;
+}
+.compeleAddress {
+  width: auto;
+  height: 88rpx;
+  background: #FFDA4C;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #000000;
+}
+.itemAddressInfo {
+  width: auto;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.itemAddressInfo:not(:last-child) {
+  border-bottom: 1px solid #EFEFEF;
+}
+.itemAddressInfo>text {
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+  width: 112rpx;
+  margin-right: 60rpx;
+}
+.itemAddressInfo>input {
+  flex: 1;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #222222;
+}
+.itemAddressInfo>picker {
+  flex: 1;
+}
+.addressInfoShow {
+  width: auto;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addressInfoShow.noSelectRegion>text {
+  color: #B0B0B0;
+}
+.addressInfoShow>text {
+  flex: 1;
+  display: block;
+  font-size: 28rpx;
+  color: #222222;
+}
+.addressInfoShow::after {
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border: 3rpx solid #ccc;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-right: 20rpx;
+}
+
+.getWxAddress {
+  padding:0 10rpx;
+  height:50rpx;
+  width:170rpx;
+  text-align:center;
+  line-height:50rpx;
+  font-size:28rpx;
+  color:#222222;
+  background:#FFDA4C;
+  border-radius:8rpx;
+  margin-left:10rpx;
+}

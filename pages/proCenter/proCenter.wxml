@@ -1,0 +1,20 @@
+<!--pages/proCenter/proCenter.wxml-->
+<import src="../common/noInternet/noInternet.wxml" />
+<import src="../common/shareBtn/shareBtn.wxml" />
+
+<view class="proCenter">
+  <view class="itemProShow" wx:for="{{productArr}}" wx:key="{{item.goodsId}}" data-index="{{index}}" bindtap="toJumpProDetail">
+    <view class="itemProImgShow"><image src="{{item.thumb}}?x-oss-process=style/thumb670x300"></image></view>
+    <text>{{item.title}}</text>
+
+    <button open-type="share" class="toSharePro" data-index="{{index}}" catchtap="toSharePro">
+      <image src="../../images/share_small_icon.png"></image>
+      <text>分享</text>
+    </button>
+
+    <view class="getPoster" data-index="{{index}}" catchtap="toGetPoster"><text>生成海报</text></view>
+  </view>
+
+  <template wx:if="{{isLoadErr}}" is="noInternet" />
+  <template wx:if="{{isShowHomeBtn}}" is="shareBtn" />
+</view>

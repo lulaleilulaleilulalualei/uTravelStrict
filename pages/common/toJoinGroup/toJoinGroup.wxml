@@ -1,0 +1,15 @@
+<template name="toJoinGroup">
+  <view class="joinGroupBg" data-sign="1" catchtap="closeJoinBox">
+    <view class="joiniGroupBox">
+      <view class="joinGroupTitle">参与{{nickName}}的拼团</view>
+      <view class="joinGroupText">仅剩<span>{{oddApplyNum}}</span>个名额</view>
+      <view class="groupUserHeadImg">
+        <view>
+          <image src="{{avatar}}"></image>
+          <text>发起人</text>
+        </view>
+      </view>
+      <view class="toJoinBtn" data-id="{{batchId}}" data-lack="{{oddApplyNum}}" bindtap="bindJoinGroup"><text>参与拼团</text></view>
+    </view>
+  </view>
+</template>
